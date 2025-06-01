@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
-  const { error, home, isLoading } = useHomePage();
+  const { home, isLoading, error } = useHomePage();
 
   if (isLoading) return <div>Loading home</div>;
   if (error) return <div>Error loading menu</div>;
