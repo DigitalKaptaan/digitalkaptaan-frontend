@@ -1,0 +1,20 @@
+:root {
+  --primary-color: #ff8855;
+  --text-color: #111;
+  --bg-white: #fff;
+  --font: "Segoe UI", sans-serif;
+  --shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+  --dropdown-shadow: 0 9px 20px rgba(0, 0, 0, 0.1);
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background-color: #fdfdfd;
+}
