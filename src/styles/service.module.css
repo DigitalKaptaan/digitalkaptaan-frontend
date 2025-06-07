@@ -1,0 +1,185 @@
+.serviceSection {
+  padding: 20px 40px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  max-width: 1920px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.serviceBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.imageWrapper {
+  position: relative;
+  flex: 1 1 50%;
+  min-width: 600px;
+  max-width: 700px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.textWrapper {
+  flex: 1 1 50%;
+  min-width: 600px;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.textWrapper h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.textWrapper p {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.textWrapper ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 25px;
+}
+
+.textWrapper li {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.textWrapper a {
+  color: #f97316;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.textWrapper a span {
+  margin-left: 5px;
+}
+
+.cornerDecor {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border: 3px solid black;
+  border-radius: 100%;
+  z-index: 2;
+}
+
+.topLeft {
+  top: -50px;
+  left: -50px;
+  border-bottom: none;
+  border-right: none;
+}
+
+.bottomRight {
+  bottom: -50px;
+  right: -50px;
+  border-top: none;
+  border-left: none;
+}
+
+/* =========================
+   Responsive Breakpoints
+   ========================= */
+
+@media (max-width: 1400px) {
+  .serviceBox {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .imageWrapper,
+  .textWrapper {
+    flex: 1 1 100%;
+    min-width: 400px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .serviceBox {
+    /* flex-direction: column; */
+    gap: 30px;
+  }
+
+  .reverse {
+    /* flex-direction: column; */
+  }
+
+  .cornerDecor {
+    display: none;
+  }
+
+  .textWrapper {
+    min-width: auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .textWrapper h2 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .textWrapper p,
+  .textWrapper li,
+  .textWrapper a {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .serviceSection {
+    padding: 40px 15px;
+  }
+
+  .textWrapper h2 {
+    font-size: 2rem;
+  }
+
+  .textWrapper p,
+  .textWrapper li,
+  .textWrapper a {
+    font-size: 0.95rem;
+  }
+
+  .imageWrapper {
+    min-width: auto;
+    max-width: 100%;
+  }
+
+  .textWrapper {
+    padding: 0 10px;
+  }
+}

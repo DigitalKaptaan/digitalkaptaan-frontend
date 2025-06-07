@@ -1,0 +1,85 @@
+/* Stats Section */
+.statsSection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.stat {
+  flex: 1 1 200px;
+  margin: 20px;
+}
+
+/* Number styling */
+.number {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+/* Label styling */
+.label {
+  font-size: 18px;
+  color: #111;
+  margin-top: 10px;
+}
+
+/* Color modifiers */
+.blue {
+  color: #4285f4;
+}
+.yellow {
+  color: #fbbc04;
+}
+.green {
+  color: #34a853;
+}
+.red {
+  color: #ea4335;
+}
+
+/* Responsive styling */
+@media (max-width: 1024px) {
+  .statsSection {
+    padding: 40px 16px;
+    gap: 16px;
+  }
+
+  .stat {
+    flex: 1 1 45%;
+    margin: 15px 10px;
+  }
+
+  .number {
+    font-size: 42px;
+  }
+
+  .label {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .statsSection {
+    flex-direction: column;
+  }
+
+  .stat {
+    flex: 1 1 100%;
+    margin: 12px 0;
+  }
+
+  .number {
+    font-size: 36px;
+  }
+
+  .label {
+    font-size: 15px;
+  }
+}

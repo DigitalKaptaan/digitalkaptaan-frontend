@@ -94,11 +94,16 @@
   border-bottom: 10px solid var(--bg-white);
 }
 
+.dropdown_menu li  {
+  list-style: none;
+}
+
 .dropdown_menu li a {
   display: block;
   padding: 0.75rem 1.25rem;
   color: var(--text-color);
   transition: background-color var(--transition), color var(--transition);
+  list-style: none;
 }
 
 .dropdown_menu li a:hover {

@@ -4,6 +4,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import useHomePage from "@/hooks/useHomePage";
 import { HeroSection } from "@/components";
+import ServiceSection from "@/components/home/ServiceSection";
+import NumberSection from "@/components/home/NumberSection";
+import BusinessSection from "@/components/home/BusinessSection";
+import { Footer } from "@/layout";
+import HomeSign from "@/components/home/HomeSign";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +30,7 @@ export default function Home() {
 
   return (
     <>
+    <div style={{ backgroundColor: '#000000 !important' }}>
       <Head>
         <title>{metaData.data.title}</title>
         <meta name="description" content={metaData.data.description} />
@@ -32,6 +38,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeroSection />
+      <NumberSection />
+      <ServiceSection />
+      <BusinessSection />
+      <HomeSign />
+      <Footer />
+      </div>
+      
     </>
   );
 }
