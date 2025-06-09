@@ -1,0 +1,232 @@
+ body.body_wrapper {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact_section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .contact_tag {
+      display: inline-block;
+      background-color: #f0f0f0;
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .contact_heading {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .contact_heading span {
+      color: #ff8855;
+    }
+
+    .contact_cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact_card {
+      background-color: #fff;
+      border: 1px solid #eee;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      padding: 30px;
+      text-align: center;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .contact_icon {
+      background-color: #ff8855;
+      color: #fff;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 30px;
+    }
+
+    .contact_title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .contact_info {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+
+    /* form css */
+     .form_wrapper {
+      font-family: 'Poppins', sans-serif;
+      background: #fdfdff;
+      color: #292930;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form_section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px;
+    }
+
+    .form_heading {
+      font-size: 38px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .contact_form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .form_group {
+      flex: 1 1 100%;
+    }
+
+    .form_group_half {
+      flex: 1 1 48%;
+    }
+
+    .contact_form input,
+.contact_form textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #cfcfd5;
+  background: transparent;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #292930;
+  outline: none;
+}
+
+.contact_form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.contact_form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #4C4C63;
+}
+
+    .form_note {
+      font-size: 14px;
+      color: #555;
+      margin-top: -10px;
+    }
+
+    .form_button {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+
+    .submit_button {
+      background-color: #ff8855;
+      border: none;
+      color: #fff;
+      font-weight: 500;
+      padding: 12px 28px;
+      font-size: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .submit_button:hover {
+      background-color: #e57844;
+    }
+
+    /* Breakpoints */
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+      .contact_heading {
+        font-size: 28px;
+      }
+
+      .form_group_half {
+        flex: 1 1 100%;
+      }
+
+      .form_heading {
+        font-size: 28px;
+      }
+
+      .form_button {
+        justify-content: center;
+      }
+    }
+
+    /* Small devices (600px and up) */
+    @media only screen and (min-width: 600px) {
+      .contact_cards {
+        flex-direction: column;
+      }
+
+       .form_group_half {
+        flex: 1 1 48%;
+      }
+    }
+
+    /* Medium devices (768px and up) */
+    @media only screen and (min-width: 768px) {
+      .contact_cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+       .form_section {
+        padding: 60px 30px;
+      }
+    }
+
+    /* Large devices (992px and up) */
+    @media only screen and (min-width: 992px) {
+      .contact_cards {
+        gap: 30px;
+      }
+
+       .form_section {
+        padding: 60px 40px;
+      }
+    }
+
+    /* Extra large devices (1200px and up) */
+    @media only screen and (min-width: 1200px) {
+      .contact_card {
+        max-width: 370px;
+      }
+
+      .form_section {
+        padding: 60px 80px;
+      }
+    }
