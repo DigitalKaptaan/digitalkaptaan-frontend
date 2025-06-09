@@ -1,5 +1,6 @@
 import React from 'react';
-import about from "@/styles/about.module.css"
+import about from "@/styles/about.module.css";
+import Image from 'next/image';
 
 const AboutMembor = () => {
   return (
@@ -18,7 +19,7 @@ const AboutMembor = () => {
       {/* Card 1 */}
       <div className={about.team_card}>
         <div className={`${about.team_image} ${about.bg_pink}`}>
-          <img src="/assets/img-1.png" alt="Lee Bowman" />
+          <Image src="/assets/img-1.png" height={250} width={250} alt="Lee Bowman" />
         </div>
         <h3>Lee Bowman</h3>
         <p>Head of Product</p>
@@ -31,7 +32,7 @@ const AboutMembor = () => {
       {/* Card 2 */}
       <div className={about.team_card}>
         <div className={`${about.team_image} ${about.bg_green}`}>
-          <img src="/assets/img-2.png" alt="Maurice Owen" />
+          <Image src="/assets/img-2.png" height={250} width={250} alt="Maurice Owen" />
         </div>
         <h3>Maurice Owen</h3>
         <p>Engineering manager</p>
@@ -44,7 +45,7 @@ const AboutMembor = () => {
       {/* Card 3 */}
       <div className={about.team_card}>
         <div className={`${about.team_image} ${about.bg_lightvoi}`}>
-          <img src="/assets/img-3.png" alt="Bradley Duncan" />
+          <Image src="/assets/img-3.png" height={250} width={250} alt="Bradley Duncan" />
         </div>
         <div>
         <h3>Bradley Duncan</h3>

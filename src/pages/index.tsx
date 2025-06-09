@@ -1,7 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+// import { Geist, Geist_Mono } from "next/font/google";
 import useHomePage from "@/hooks/useHomePage";
 import { HeroSection } from "@/components";
 import ServiceSection from "@/components/home/ServiceSection";
@@ -10,15 +8,15 @@ import BusinessSection from "@/components/home/BusinessSection";
 import { Footer } from "@/layout";
 import HomeSign from "@/components/home/HomeSign";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export default function Home() {
   const { home, isLoading, error } = useHomePage();
@@ -26,7 +24,20 @@ export default function Home() {
   if (isLoading) return <div>Loading home</div>;
   if (error) return <div>Error loading menu</div>;
 
-  const metaData = home.data.find((item: any) => item.type === "meta");
+  const metaData = home.data.find((item: {
+            "type": string,
+            "data": {
+                "_id":string;
+                "page":string;
+                "title":string;
+                "description":string;
+                "keywords":string;
+                "faviconUrl":string;
+                "createdAt":string;
+                "updatedAt":string;
+                "__v":number;
+            }
+        }) => item.type === "meta");
 
   return (
     <>

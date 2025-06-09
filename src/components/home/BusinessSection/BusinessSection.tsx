@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "@/styles/Business.module.css";
+import Image from "next/image";
 
 const listData = [
   {
@@ -42,7 +43,7 @@ const BusinessSection = () => {
               {listData.map((item, index) => (
                 <div className={styles.card} key={index}>
                   <div className={styles.card_icon}>
-                    <img src={item.image} alt="icon" />
+                    <Image src={item.image} width={100} height={100} alt="icon" />
                   </div>
                   <h3>{item.title}</h3>
                   <p>{item.paragraph}</p>

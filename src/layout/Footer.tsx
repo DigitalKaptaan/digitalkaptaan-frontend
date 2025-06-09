@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "@/styles/Footer.module.css";
+import Image from "next/image";
 
 const footerData = [
   {
@@ -42,7 +43,7 @@ const Footer = () => {
             {/* Logo and Contact */}
             <div className={styles.left_column}>
               <div className={styles.logo}>
-                <img
+                <Image width={100} height={100}
                   src="/white-logo.svg"
                   alt="Terra Logo"
                   className={styles.logo_icon}

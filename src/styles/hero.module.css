@@ -15,7 +15,7 @@
 
 .heroContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   max-width: 1300px;
@@ -392,7 +392,7 @@
     }
 
     .hero_digital_marketing {
-        padding: 85px 0 100px 0;
+        padding: 20px 0 10px 0;
     }
 }
 

@@ -1,7 +1,6 @@
 import { fetchHomeData } from "@/services/homeService";
 import useSWR from "swr";
 
-type Props = {};
 
 const useHomePage = () => {
   const { data, error, isLoading } = useSWR("home", fetchHomeData);

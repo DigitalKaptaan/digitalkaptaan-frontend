@@ -1,5 +1,6 @@
 import React from 'react';
 import about from "@/styles/about.module.css";
+import Image from 'next/image';
 
 
 const AboutHero = () => {
@@ -16,8 +17,8 @@ const AboutHero = () => {
         </h2>
       </div>
       <div className={about.about_us_images}>
-        <img className={about.img1} src="/assets/about-01.webp" alt="Team working" />
-        <img className={about.img2} src="/assets/about-02.webp" alt="Team at laptop" />
+        <Image className={about.img1} src="/assets/about-01.webp" width={550} height={550} alt="Team working" />
+        <Image className={about.img2} src="/assets/about-02.webp" width={550} height={550} alt="Team at laptop" />
       </div>
       {/* <div className={about.about_us_images}>
         <img src="/assets/about-01.webp" alt="Team working" />

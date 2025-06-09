@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 
 export const responseHandler = (response: AxiosResponse) => {
   return {

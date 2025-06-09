@@ -1,4 +1,4 @@
-import { NavBar } from "@/layout";
+// import { NavBar } from "@/layout";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {

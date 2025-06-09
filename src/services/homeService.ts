@@ -8,9 +8,18 @@ export const fetchHomeData = async () => {
     } else {
       throw response.data;
     }
-  } catch (error: any) {
-    const message =
-      error?.response?.data?.message || error.message || "Unknown error";
+  } catch (error: unknown) {  // Use unknown instead of any
+    let message = "Unknown error";
+
+    // Type guard for Axios-like errors
+    if (typeof error === "object" && error !== null && "response" in error) {
+      const err = error as { response?: { data?: { message?: string } } };
+      message = err.response?.data?.message || "Unknown error";
+    } else if (error instanceof Error) {
+      message = error.message;
+    }
+
     throw new Error(`Home API failed: ${message}`);
   }
 };
+
