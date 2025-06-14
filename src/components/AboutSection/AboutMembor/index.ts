@@ -1,1 +1,1 @@
-export { default } from './AboutMembor'
+export { default as AboutMembor } from "./AboutMembor";

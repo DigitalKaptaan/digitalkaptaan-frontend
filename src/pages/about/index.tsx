@@ -1,24 +1,22 @@
-import React from 'react';
-import { Footer } from '@/layout';
-import AboutHero from '@/components/AboutSection/AboutHero';
-import AboutDetails from '@/components/AboutSection/AboutDetails';
-import AboutScroller from '@/components/AboutSection/AboutScroller';
-import AboutMembor from '@/components/AboutSection/AboutMembor';
-import AboutForm from '@/components/AboutSection/AboutForm';
+import {
+  AboutDetails,
+  AboutForm,
+  AboutHero,
+  AboutMembor,
+  AboutScroller,
+} from "@/components";
+import React from "react";
 
 const index = () => {
   return (
-   <>
-   
-   <AboutHero />
-   <AboutDetails />
-   <AboutScroller />
-   <AboutMembor />
-   <AboutForm />
+    <>
+      <AboutHero />
+      <AboutDetails />
+      <AboutScroller />
+      <AboutMembor />
+      <AboutForm />
+    </>
+  );
+};
 
-   <Footer />
-   </>
-  )
-}
-
-export default index
+export default index;

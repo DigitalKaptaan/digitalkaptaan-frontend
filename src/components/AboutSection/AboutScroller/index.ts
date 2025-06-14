@@ -1,1 +1,1 @@
-export {default} from './AboutScroller'
+export { default as AboutScroller } from "./AboutScroller";

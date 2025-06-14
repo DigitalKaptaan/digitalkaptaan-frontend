@@ -43,7 +43,9 @@ const Footer = () => {
             {/* Logo and Contact */}
             <div className={styles.left_column}>
               <div className={styles.logo}>
-                <Image width={100} height={100}
+                <Image
+                  width={100}
+                  height={100}
                   src="/white-logo.svg"
                   alt="Terra Logo"
                   className={styles.logo_icon}

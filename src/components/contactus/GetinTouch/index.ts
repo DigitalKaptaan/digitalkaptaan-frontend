@@ -1,1 +1,1 @@
-export { default } from './GetinTouch'
+export { default as GetinTouch } from "./GetinTouch";

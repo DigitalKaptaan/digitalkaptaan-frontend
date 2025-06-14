@@ -1,18 +1,14 @@
-import React from 'react';
-import GetinTouch from '@/components/contactus/GetinTouch/GetinTouch';
-import ContactForm from '@/components/contactus/ContactForm';
-import { Footer } from '@/layout';
+import React from "react";
+import { Footer } from "@/layout";
+import { ContactForm, GetinTouch } from "@/components";
 
 const index = () => {
   return (
     <div>
-
-        <GetinTouch />
-        <ContactForm />
-        <Footer />
-      
+      <GetinTouch />
+      <ContactForm />
     </div>
-  )
-}
+  );
+};
 
-export default index
+export default index;
