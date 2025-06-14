@@ -1,5 +1,5 @@
 import React from "react";
-import { useMenu } from "@/hooks/useMenu";
+import { useMenu } from "@/hooks";
 import { usePathname, useRouter } from "next/navigation";
 import navStyle from "@/styles/nav.module.css";
 import { Actions, HamburgerToggle, Logo, NavLinks } from "@/components";
