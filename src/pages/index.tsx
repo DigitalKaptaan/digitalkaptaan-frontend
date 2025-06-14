@@ -1,11 +1,13 @@
 import Head from "next/head";
-import useHomePage from "@/hooks/useHomePage";
-import { HeroSection } from "@/components";
-import ServiceSection from "@/components/home/ServiceSection";
-import NumberSection from "@/components/home/NumberSection";
-import BusinessSection from "@/components/home/BusinessSection";
+import {
+  BusinessSection,
+  HeroSection,
+  HomeSign,
+  NumberSection,
+  ServiceSection,
+} from "@/components";
 import { Footer } from "@/layout";
-import HomeSign from "@/components/home/HomeSign";
+import { useHomePage } from "@/hooks";
 
 export default function Home() {
   const { home, isLoading, error } = useHomePage();

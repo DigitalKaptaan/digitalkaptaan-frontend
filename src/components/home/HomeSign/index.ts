@@ -1,1 +1,1 @@
-export { default } from './HomeSign'
+export { default as HomeSign } from "./HomeSign";

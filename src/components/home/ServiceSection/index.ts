@@ -1,1 +1,1 @@
-export { default } from './ServiceSection'
+export { default as ServiceSection } from "./ServiceSection";

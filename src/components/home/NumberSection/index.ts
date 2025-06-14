@@ -1,1 +1,1 @@
-export { default } from './NumberSection'
+export { default as NumberSection } from "./NumberSection";
