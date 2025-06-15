@@ -1,0 +1,157 @@
+
+.bg {
+    background-image: url('/assets/BlogPage//bg.webp'); /* Replace with your actual image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+}
+
+
+.blog_section {
+  padding: 50px 20px;
+  text-align: center;
+  /* background: radial-gradient(#f9f9f9 1px, transparent 1px); */
+  /* background-size: 20px 20px; */
+}
+
+.section_header {
+  margin-bottom: 40px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #eee;
+  padding: 5px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.section_header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #111;
+}
+
+.highlight {
+  color: #ff8855;
+}
+
+.blog_cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.card_link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.card_link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 350px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+/* .card:hover {
+  transform: translateY(-5px);
+} */
+
+.card_image {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.card_image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.card_image:hover img {
+  transform: scale(1.05);
+}
+
+.tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #ff8855;
+  color: white;
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 2; /* keeps tag on top */
+}
+
+.card h3 {
+  font-size: 18px;
+  margin: 15px 20px 10px;
+  color: #000;
+}
+
+.meta {
+  font-size: 14px;
+  color: #777;
+  margin: 0 20px 20px;
+}
+
+/* === Responsive Breakpoints === */
+
+@media only screen and (max-width: 600px) {
+  .section_header h2 {
+    font-size: 26px;
+  }
+
+  .blog_cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .section_header h2 {
+    font-size: 28px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .section_header h2 {
+    font-size: 32px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .section_header h2 {
+    font-size: 4.25rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .blog_cards {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
