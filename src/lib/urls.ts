@@ -9,4 +9,8 @@ export const URLS = {
   HOME: {
     GETHOMEDATA: "/api/homepage",
   },
+  CONTACT: {
+    GETCONTACTLIST: "/api/contact",
+    POSTCUSTOMERREQUEST: "/api/contact/customer",
+  },
 };

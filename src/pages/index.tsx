@@ -6,7 +6,6 @@ import {
   NumberSection,
   ServiceSection,
 } from "@/components";
-import { Footer } from "@/layout";
 import { useHomePage } from "@/hooks";
 
 export default function Home() {
@@ -82,7 +81,6 @@ export default function Home() {
       <ServiceSection {...solutionHighlightsData} />
       <BusinessSection />
       <HomeSign />
-      <Footer />
     </>
   );
 }

@@ -8,10 +8,9 @@ export const fetchHomeData = async () => {
     } else {
       throw response.data;
     }
-  } catch (error: unknown) {  // Use unknown instead of any
+  } catch (error: unknown) {
     let message = "Unknown error";
 
-    // Type guard for Axios-like errors
     if (typeof error === "object" && error !== null && "response" in error) {
       const err = error as { response?: { data?: { message?: string } } };
       message = err.response?.data?.message || "Unknown error";
@@ -22,4 +21,3 @@ export const fetchHomeData = async () => {
     throw new Error(`Home API failed: ${message}`);
   }
 };
-
