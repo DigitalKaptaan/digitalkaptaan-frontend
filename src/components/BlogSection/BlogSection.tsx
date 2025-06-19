@@ -6,7 +6,7 @@
     const blogList = [
     {
         id: 1,
-        href: "/about",
+        href: "#",
         tag: "MARKETING",
         image: "/assets/BlogPage/066.jpg",
         title: "10+ Best Hosting for WordPress",
