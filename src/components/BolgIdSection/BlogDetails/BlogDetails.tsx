@@ -1,5 +1,6 @@
 import React from "react";
 import Id from "@/styles/id.module.css";
+import Image from "next/image";
 
 const BlogDetails = () => {
   return (
@@ -7,7 +8,7 @@ const BlogDetails = () => {
       <section className={Id.content_section}>
         <div className={Id.content_wrapper}>
           <div className={Id.image_box}>
-            <img src="/assets/BlogPage/066.jpg" alt="Illustration" />
+            <Image src="/assets/BlogPage/066.jpg" width={500} height={500} alt="Illustration" />
           </div>
           <div className={Id.text_box}>
             <p>

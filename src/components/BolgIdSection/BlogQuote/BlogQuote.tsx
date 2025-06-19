@@ -1,5 +1,5 @@
 import React from "react";
-import ID from "@/styles/iD.module.css";
+import ID from "@/styles/id.module.css";
 
 const BlogQuote = () => {
   return (
