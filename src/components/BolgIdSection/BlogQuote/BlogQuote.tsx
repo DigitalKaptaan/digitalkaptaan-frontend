@@ -22,7 +22,7 @@ const BlogQuote = () => {
               fantastic knackered tickety-boo Harry porkies, mush excuse my
               French bender down the pub Oxford bum bag gutted mate car boot
               pukka loo it’s your round, cor blimey guvnor is on your bike mate
-              cup of char some dodgy chav blag happy days nancy boy hotpot.
+              cup of char some dodgy chav blag happy days nancy boy hotpot helo.
             </p>
             <p>
               Cras chinwag brown bread Eaton cracking goal so I said a load of
