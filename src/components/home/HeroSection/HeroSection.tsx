@@ -19,12 +19,11 @@ type HeroData = {
 };
 
 type Props = {
-  type: string;
-  data: HeroData[];
+  data: HeroData;
 };
 
 const HeroSection = ({ data }: Props) => {
-  const hero = data?.[0];
+  const hero = data;
   if (!hero) return null;
 
   const { title, subtitle, backgroundImage, animationIcons } = hero;

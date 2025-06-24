@@ -1,6 +1,5 @@
-import { fetchContactList, postContactForm } from "@/services";
+import { postContactForm } from "@/services";
 import { useState } from "react";
-import useSWR from "swr";
 
 export type ContactFormValues = {
   firstName: string;
@@ -12,11 +11,11 @@ export type ContactFormValues = {
 };
 
 const useContact = () => {
-  const {
-    data: contactList,
-    error: fetchError,
-    isLoading,
-  } = useSWR("contactList", fetchContactList);
+  // const {
+  //   data: contactList,
+  //   error: fetchError,
+  //   isLoading,
+  // } = useSWR("contactList", fetchContactList);
 
   const [values, setValues] = useState<ContactFormValues>({
     firstName: "",
@@ -36,7 +35,6 @@ const useContact = () => {
   ) => {
     const { name, value } = e.target;
 
-    console.log("value", value);
     setValues((prev) => ({
       ...prev,
       [name]: value,
@@ -72,9 +70,6 @@ const useContact = () => {
   };
 
   return {
-    contactList,
-    isLoading,
-    fetchError,
     values,
     formLoading,
     formError,
