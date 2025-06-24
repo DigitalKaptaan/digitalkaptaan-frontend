@@ -43,7 +43,7 @@ const ServiceCard = ({
             className={styles.image}
             priority
           />
-          <div className={`${styles.cornerDecor} ${styles.bottomRight}`} />
+          {/* <div className={`${styles.cornerDecor} ${styles.bottomRight}`} /> */}
         </div>
         <div className={styles.textWrapper}>
           <h2>{item.title}</h2>

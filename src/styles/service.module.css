@@ -1,10 +1,10 @@
 .serviceSection {
   padding: 20px 40px;
-  background-color: #fff;
+  background-color: #FAFAFA;
   display: flex;
   justify-content: center;
   gap: 100px;
-  max-width: 1920px;
+  max-width: 1900px;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -16,7 +16,7 @@
   gap: 50px;
   flex-wrap: nowrap;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
 }
 
 .reverse {
