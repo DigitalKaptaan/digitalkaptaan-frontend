@@ -6,81 +6,139 @@ import {
   NumberSection,
   ServiceSection,
 } from "@/components";
-import { useHomePage } from "@/hooks";
+import { HomeApi } from "@/lib";
+import { GetServerSideProps } from "next";
 
-export default function Home() {
-  const { home, isLoading, error } = useHomePage();
+// ---------------- Types ----------------
 
-  if (isLoading) return <div>Loading home</div>;
-  if (error) return <div>Error loading menu</div>;
+type MetaData = {
+  _id: string;
+  page: string;
+  title: string;
+  description: string;
+  keywords: string;
+  faviconUrl: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
 
-  const metaData = home.data.find(
-    (item: {
-      type: string;
-      data: {
-        _id: string;
-        page: string;
-        title: string;
-        description: string;
-        keywords: string;
-        faviconUrl: string;
-        createdAt: string;
-        updatedAt: string;
-        __v: number;
-      };
-    }) => item.type === "meta"
+type BannerData = {
+  _id: string;
+  title: string;
+  subtitle: string;
+  backgroundImage: string;
+  animationIcons: string[];
+  buttons: {
+    label: string;
+    link: string;
+    _id: string;
+  }[];
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+type SolutionHighlight = {
+  _id: string;
+  title: string;
+  image: string;
+  buttons: {
+    label: string;
+    link: string;
+    _id: string;
+  }[];
+  points: string[];
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
+// Typed union without `any`
+type HomeContentItem =
+  | { type: "meta"; data: MetaData }
+  | { type: "banners"; data: BannerData[] }
+  | { type: "solutionHighlights"; data: SolutionHighlight[] };
+
+// Props for component
+type Props = {
+  homeData: HomeContentItem[];
+  hasError: boolean;
+};
+
+// ---------------- Component ----------------
+
+export default function Home({ homeData, hasError }: Props) {
+  if (hasError || !homeData.length) {
+    return (
+      <div style={{ padding: "3rem", textAlign: "center" }}>
+        <h1>⚠️ Oops! Something went wrong.</h1>
+        <p>Please try again later or check your internet connection.</p>
+      </div>
+    );
+  }
+
+  const metaDataItem = homeData.find((item) => item.type === "meta");
+  const bannerDataItem = homeData.find((item) => item.type === "banners");
+  const solutionHighlightsItem = homeData.find(
+    (item) => item.type === "solutionHighlights"
   );
-  const bannerData = home.data.find(
-    (item: {
-      type: string;
-      data: {
-        _id: string;
-        title: string;
-        subtitle: string;
-        backgroundImage: string;
-        animationIcons: string[];
-        buttons: [];
-        createdAt: string;
-        updatedAt: string;
-        __v: number;
-      };
-    }) => item.type === "banners"
-  );
-  const solutionHighlightsData = home.data.find(
-    (item: {
-      type: string;
-      data: {
-        _id: string;
-        title: string;
-        image: string;
-        buttons: {
-          label: string;
-          link: string;
-          _id: string;
-        }[];
 
-        points: string[];
-        createdAt: string;
-        updatedAt: string;
-        __v: number;
-      }[];
-    }) => item.type === "solutionHighlights"
-  );
+  const metaData = metaDataItem?.data as MetaData;
+  const bannerData = bannerDataItem?.data as BannerData[];
+  const solutionHighlightsData =
+    solutionHighlightsItem?.data as SolutionHighlight[];
 
   return (
     <>
       <Head>
-        <title>{metaData.data.title}</title>
-        <meta name="description" content={metaData.data.description} />
+        <title>{metaData?.title ?? "Home"}</title>
+        <meta
+          name="description"
+          content={metaData?.description ?? "Welcome to our website"}
+        />
+        <meta name="keywords" content={metaData?.keywords ?? ""} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={metaData?.faviconUrl ?? "/favicon.ico"} />
       </Head>
 
-      <HeroSection {...bannerData} />
+      <HeroSection data={bannerData[0]} />
       <NumberSection />
-      <ServiceSection {...solutionHighlightsData} />
+      <ServiceSection data={solutionHighlightsData} type="" />
       <BusinessSection />
       <HomeSign />
     </>
   );
 }
+
+// ---------------- SSR ----------------
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  try {
+    const response = await HomeApi.getHomeData();
+
+    if (response.code !== 200 || !response.data?.data) {
+      return {
+        props: {
+          homeData: [],
+          hasError: true,
+        },
+      };
+    }
+
+    return {
+      props: {
+        homeData: response.data.data as HomeContentItem[],
+        hasError: false,
+      },
+    };
+  } catch (error: unknown) {
+    console.error("Error fetching home data:", error);
+    return {
+      props: {
+        homeData: [],
+        hasError: true,
+      },
+    };
+  }
+};

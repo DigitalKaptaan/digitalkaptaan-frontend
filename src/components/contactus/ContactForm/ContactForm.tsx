@@ -1,23 +1,6 @@
 import React from "react";
 import contact from "@/styles/contactus.module.css";
-
-type ContactFormProps = {
-  values: {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone?: string;
-    subject: string;
-    message: string;
-  };
-  formLoading: boolean;
-  formError: string | null;
-  formSuccess: boolean;
-  handleChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-};
+import { useContact } from "@/hooks";
 
 const FormField = ({
   label,
@@ -51,14 +34,15 @@ const FormField = ({
   </div>
 );
 
-const ContactForm = ({
-  values,
-  formLoading,
-  formError,
-  formSuccess,
-  handleChange,
-  handleSubmit,
-}: ContactFormProps) => {
+const ContactForm = () => {
+  const {
+    formError,
+    formLoading,
+    formSuccess,
+    handleChange,
+    handleSubmit,
+    values,
+  } = useContact();
   return (
     <section className={contact.form_wrapper}>
       <div className={contact.form_section}>

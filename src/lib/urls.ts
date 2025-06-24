@@ -13,4 +13,7 @@ export const URLS = {
     GETCONTACTLIST: "/api/contact",
     POSTCUSTOMERREQUEST: "/api/contact/customer",
   },
+  BLOG: {
+    BLOGLIST: "/api/blog",
+  },
 };
