@@ -12,23 +12,23 @@ const NavLinks: React.FC<Props> = ({ menu, pathname }) => (
     {menu.map((menuItem, index) => (
       <li className={navStyle.dropdown} key={index}>
         <Link
-          href={menuItem.link}
-          className={pathname === menuItem.link ? navStyle.active : ""}
+          href={menuItem.url}
+          className={pathname === menuItem.url ? navStyle.active : ""}
         >
           {menuItem.label}
-          {menuItem.submenu?.length > 0 && (
+          {menuItem.children?.length > 0 && (
             <span className={navStyle.arrow}>▼</span>
           )}
         </Link>
 
-        {menuItem.submenu?.length > 0 && (
+        {menuItem.children?.length > 0 && (
           <ul className={navStyle.dropdown_menu}>
             <div className={navStyle.dropdown_arrow} />
-            {menuItem.submenu.map((subItem: SubMenuItem, subIndex: number) => (
+            {menuItem.children.map((subItem: SubMenuItem, subIndex: number) => (
               <li key={subIndex}>
                 <Link
-                  href={subItem.link || "#"}
-                  className={pathname === subItem.link ? navStyle.active : ""}
+                  href={subItem.url || "#"}
+                  className={pathname === subItem.url ? navStyle.active : ""}
                 >
                   {subItem.label}
                 </Link>

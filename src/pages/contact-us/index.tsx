@@ -1,86 +1,57 @@
-// import React from "react";
-// import { ContactForm, GetinTouch } from "@/components";
-// import { useContact } from "@/hooks";
-
-// const Index = () => {
-//   const {
-//     contactList,
-//     fetchError,
-//     isLoading,
-//     formError,
-//     formLoading,
-//     formSuccess,
-//     handleChange,
-//     handleSubmit,
-//     values,
-//   } = useContact();
-//   if (isLoading) return <div>Loading home</div>;
-//   if (fetchError) return <div>Error loading menu</div>;
-
-//   return (
-//     <div>
-//       <GetinTouch list={contactList.data || []} />
-//       <ContactForm
-//         values={values}
-//         formError={formError}
-//         formSuccess={formSuccess}
-//         formLoading={formLoading}
-//         handleChange={handleChange}
-//         handleSubmit={handleSubmit}
-//       />
-//     </div>
-//   );
-// };
-
-// export default Index;
-
 import React from "react";
 import { ContactForm, GetinTouch } from "@/components";
-import { ContactApi } from "@/lib"; // Make sure this API client exists and works
-import { GetServerSideProps } from "next";
+import { withMenuAndContactData } from "@/lib/server";
+import Head from "next/head";
 
 type ContactItem = {
   _id: string;
-  title: string;
-  data: string;
-  iconPath: string;
-  iconContent: string;
+  address: string;
+  addressHeader: string;
+  addressIcon: string;
+  countryCode: string;
+  phoneNumber: string;
+  phoneHeader: string;
+  phoneIcon: string;
+  email: string;
+  emailHeader: string;
+  emailIcon: string;
   createdAt: string;
   updatedAt: string;
   __v: number;
 };
 
 type Props = {
-  contactList: ContactItem[];
+  metaData: {
+    _id: string;
+    page: string;
+    title: string;
+    description: string;
+    keywords: string[];
+    ogTitle: string;
+    ogDescription: string;
+    ogImage: string;
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+  };
+  contactData: ContactItem;
 };
 
-const Index = ({ contactList }: Props) => {
+const Index = ({ metaData, contactData }: Props) => {
   return (
     <div>
-      <GetinTouch list={contactList ?? []} />
+      <Head>
+        <title>{metaData?.title}</title>
+        <meta name="description" content={metaData?.description} />
+        <meta name="keywords" content={metaData?.keywords.join()} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href={"/favicon.ico"} />
+      </Head>
+      <GetinTouch data={contactData} />
       <ContactForm />
     </div>
   );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  try {
-    const response = await ContactApi.getContactListData();
-    const data = response?.data?.data ?? [];
-
-    return {
-      props: {
-        contactList: data,
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching contact list:", error);
-    return {
-      props: {
-        contactList: [],
-      },
-    };
-  }
-};
-
 export default Index;
+export const getServerSideProps = withMenuAndContactData();

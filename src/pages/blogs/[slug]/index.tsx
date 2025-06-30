@@ -1,111 +1,72 @@
-import BannerSection from "@/components/BolgIdSection/BannerSection";
-import BlogDetails from "@/components/BolgIdSection/BlogDetails";
-import BlogForm from "@/components/BolgIdSection/BlogForm";
-import { BlogApi } from "@/lib";
-import { GetServerSideProps } from "next";
+import { BannerSection, BlogDetails, BlogForm } from "@/components";
+import { withMenuAndBlogDetailData } from "@/lib";
+import Head from "next/head";
 
 type Blog = {
+  meta: {
+    title: string;
+    description: string;
+    keywords: string[];
+  };
   _id: string;
   title: string;
-  description: string;
-  image: string;
-  category: string;
-  isPublished: boolean;
-  slug: string;
+  content: string;
+  coverImage: string;
+  status: string;
   createdAt: string;
   updatedAt: string;
+  slug: string;
   __v: number;
 };
 
 type Props = {
-  blog: Blog | null;
-  error?: boolean;
-  hasError?: boolean;
-  notFound?: boolean;
+  blogDetailData: Blog | null;
+  blogDetailHasError: boolean;
 };
 
-const BlogPage = ({ blog, error, hasError, notFound }: Props) => {
-  if (hasError) {
+const BlogPage = ({ blogDetailData }: Props) => {
+  if (!blogDetailData) {
     return (
-      <div style={{ padding: "3rem", textAlign: "center" }}>
+      <div
+        style={{
+          padding: "3rem",
+          textAlign: "center",
+        }}
+      >
         <h1>⚠️ Oops! Something went wrong.</h1>
         <p>Please try again later or check your internet connection.</p>
       </div>
     );
   }
-  if (notFound) {
-    return (
-      <div style={{ padding: "3rem", textAlign: "center" }}>
-        <h1>⚠️ Oops! Not Found.</h1>
-        <p>Please try again later or check your internet connection.</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return <div>Error loading blog. Please try again later.</div>;
-  }
-
-  if (!blog) {
-    return <div>Loading blog...</div>;
-  }
-
   return (
-    <div>
-      <BannerSection title={blog.title} date={blog.updatedAt} />
-      <BlogDetails image={blog.image} description={blog.description} />
+    <main>
+      <Head>
+        <title>{blogDetailData?.meta?.title ?? "Blog Detils"}</title>
+        <meta
+          name="description"
+          content={blogDetailData?.meta?.description ?? ""}
+        />
+        <meta
+          name="keywords"
+          content={
+            blogDetailData?.meta?.keywords.join() ?? "blog, articles, tech"
+          }
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <BannerSection
+        title={blogDetailData.title}
+        date={blogDetailData.updatedAt}
+      />
+      <BlogDetails
+        image={blogDetailData.coverImage}
+        description={blogDetailData.content}
+      />
       <BlogForm />
-    </div>
+    </main>
   );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async (
-  context
-) => {
-  const slug = context.params?.slug?.toString() || "";
-
-  try {
-    const response = await BlogApi.fetchBlogBySlug(slug);
-
-    if (response.code === 404) {
-      return {
-        props: {
-          blog: null,
-          hasError: false,
-          notFound: true,
-        },
-      };
-    }
-    if (response.code !== 200) {
-      return {
-        props: {
-          blog: null,
-          hasError: true,
-        },
-      };
-    }
-
-    const blogData = response?.data?.data;
-    if (!blogData) {
-      return { notFound: true, hasError: false };
-    }
-
-    return {
-      props: {
-        blog: blogData,
-        hasError: false,
-      },
-    };
-  } catch (err) {
-    console.error("Fetch blog error:", err);
-    return {
-      props: {
-        blog: null,
-        error: true,
-        hasError: true,
-      },
-    };
-  }
-};
+export const getServerSideProps = withMenuAndBlogDetailData();
 
 export default BlogPage;

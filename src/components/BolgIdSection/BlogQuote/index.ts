@@ -1,1 +1,1 @@
-export {default } from './BlogQuote'
+export { default as BlogQuote } from "./BlogQuote";

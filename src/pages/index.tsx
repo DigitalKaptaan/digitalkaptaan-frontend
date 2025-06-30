@@ -6,139 +6,154 @@ import {
   NumberSection,
   ServiceSection,
 } from "@/components";
-import { HomeApi } from "@/lib";
-import { GetServerSideProps } from "next";
+import { withMenuAndPageData } from "@/lib/server";
 
-// ---------------- Types ----------------
+type HeroSection = {
+  type: "hero";
+  content: {
+    headline: string;
+    description: string;
+    imageUrl: string;
+    cta?: string;
+    animationIcons: string[];
+  };
+};
 
-type MetaData = {
+type StatsSection = {
+  type: "stats";
+  content: {
+    items: {
+      label: string;
+      value: number;
+      color: string;
+      suffix: string;
+    }[];
+  };
+};
+
+type FeaturesSection = {
+  type: "features";
+  content: {
+    items: {
+      title: string;
+      description: string[];
+      imageUrl: string;
+      buttons?: {
+        label: string;
+        url: string;
+      }[];
+    }[];
+  };
+};
+
+type ServiceCardsSection = {
+  type: "serviceCards";
+  content: {
+    title: string;
+    cards: {
+      icon: string;
+      title: string;
+      description: string;
+    }[];
+  };
+};
+
+type HomeSection =
+  | HeroSection
+  | StatsSection
+  | FeaturesSection
+  | ServiceCardsSection;
+
+type ExtendedSection = HomeSection & {
   _id: string;
-  page: string;
-  title: string;
-  description: string;
-  keywords: string;
-  faviconUrl: string;
+  order: number;
   createdAt: string;
   updatedAt: string;
   __v: number;
 };
 
-type BannerData = {
+// === Page Data Type ===
+
+type PageData = {
   _id: string;
-  title: string;
-  subtitle: string;
-  backgroundImage: string;
-  animationIcons: string[];
-  buttons: {
-    label: string;
-    link: string;
-    _id: string;
-  }[];
+  name: string;
+  slug: string;
+  sections: ExtendedSection[];
   createdAt: string;
   updatedAt: string;
   __v: number;
 };
 
-type SolutionHighlight = {
-  _id: string;
-  title: string;
-  image: string;
-  buttons: {
-    label: string;
-    link: string;
-    _id: string;
-  }[];
-  points: string[];
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-};
-
-// Typed union without `any`
-type HomeContentItem =
-  | { type: "meta"; data: MetaData }
-  | { type: "banners"; data: BannerData[] }
-  | { type: "solutionHighlights"; data: SolutionHighlight[] };
-
-// Props for component
 type Props = {
-  homeData: HomeContentItem[];
-  hasError: boolean;
+  metaData: {
+    _id: string;
+    page: string;
+    title: string;
+    description: string;
+    keywords: string[];
+    ogTitle: string;
+    ogDescription: string;
+    ogImage: string;
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+  };
+  pageData: PageData;
+  pageHasError: boolean;
 };
 
-// ---------------- Component ----------------
-
-export default function Home({ homeData, hasError }: Props) {
-  if (hasError || !homeData.length) {
+export default function Home({ metaData, pageData, pageHasError }: Props) {
+  if (pageHasError || !pageData) {
     return (
       <div style={{ padding: "3rem", textAlign: "center" }}>
         <h1>⚠️ Oops! Something went wrong.</h1>
-        <p>Please try again later or check your internet connection.</p>
+        <p>Please try again later or contact support.</p>
       </div>
     );
   }
 
-  const metaDataItem = homeData.find((item) => item.type === "meta");
-  const bannerDataItem = homeData.find((item) => item.type === "banners");
-  const solutionHighlightsItem = homeData.find(
-    (item) => item.type === "solutionHighlights"
-  );
-
-  const metaData = metaDataItem?.data as MetaData;
-  const bannerData = bannerDataItem?.data as BannerData[];
-  const solutionHighlightsData =
-    solutionHighlightsItem?.data as SolutionHighlight[];
-
   return (
-    <>
+    <div>
       <Head>
-        <title>{metaData?.title ?? "Home"}</title>
-        <meta
-          name="description"
-          content={metaData?.description ?? "Welcome to our website"}
-        />
-        <meta name="keywords" content={metaData?.keywords ?? ""} />
+        <title>{metaData.title}</title>
+        <meta name="description" content={metaData.description} />
+        <meta name="keywords" content={metaData.keywords.join()} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href={metaData?.faviconUrl ?? "/favicon.ico"} />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HeroSection data={bannerData[0]} />
-      <NumberSection />
-      <ServiceSection data={solutionHighlightsData} type="" />
-      <BusinessSection />
+      {[...pageData.sections]
+        .sort((a, b) => a.order - b.order)
+        .map((section) => {
+          switch (section.type) {
+            case "hero":
+              return <HeroSection key={section._id} data={section.content} />;
+            case "stats":
+              return (
+                <NumberSection
+                  key={section._id}
+                  statsData={section.content.items}
+                />
+              );
+            case "features":
+              return (
+                <ServiceSection
+                  key={section._id}
+                  data={section.content.items}
+                />
+              );
+            case "serviceCards":
+              return (
+                <BusinessSection key={section._id} data={section.content} />
+              );
+            default:
+              return null;
+          }
+        })}
+
       <HomeSign />
-    </>
+    </div>
   );
 }
 
-// ---------------- SSR ----------------
-
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  try {
-    const response = await HomeApi.getHomeData();
-
-    if (response.code !== 200 || !response.data?.data) {
-      return {
-        props: {
-          homeData: [],
-          hasError: true,
-        },
-      };
-    }
-
-    return {
-      props: {
-        homeData: response.data.data as HomeContentItem[],
-        hasError: false,
-      },
-    };
-  } catch (error: unknown) {
-    console.error("Error fetching home data:", error);
-    return {
-      props: {
-        homeData: [],
-        hasError: true,
-      },
-    };
-  }
-};
+export const getServerSideProps = withMenuAndPageData("home", "home");

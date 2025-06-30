@@ -1,12 +1,16 @@
 export type SubMenuItem = {
+  external?: boolean;
   label: string;
-  link?: string;
+  url: string;
+  order: number;
 };
 
 export type MenuItem = {
+  children: SubMenuItem[];
+  external?: boolean;
   label: string;
-  link: string;
-  submenu: SubMenuItem[];
+  url: string;
+  order: number;
 };
 
 export type MenuResponse = {

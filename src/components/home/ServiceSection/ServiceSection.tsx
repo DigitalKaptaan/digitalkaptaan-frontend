@@ -5,22 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 type ServiceData = {
-  _id: string;
   title: string;
-  image: string;
-  buttons: {
+  description: string[];
+  buttons?: {
     label: string;
-    link: string;
-    _id: string;
+    url: string;
   }[];
-  points: string[];
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
+  imageUrl: string;
 };
 
 type Props = {
-  type: string;
   data: ServiceData[];
 };
 
@@ -36,7 +30,7 @@ const ServiceCard = ({
       <div className={`${styles.serviceBox} ${reverse ? styles.reverse : ""}`}>
         <div className={styles.imageWrapper}>
           <Image
-            src={item.image}
+            src={item.imageUrl}
             alt={item.title}
             width={700}
             height={450}
@@ -47,18 +41,23 @@ const ServiceCard = ({
         </div>
         <div className={styles.textWrapper}>
           <h2>{item.title}</h2>
-          {item.points?.length > 0 && (
+          {item.description?.length > 0 && (
             <ul>
-              {item.points.map((point, idx) => (
+              {item.description.map((point, idx) => (
                 <li key={idx}>{point}</li>
               ))}
             </ul>
           )}
-          {item.buttons?.[0] && (
-            <Link href={item.buttons[0].link}>
-              <span>{item.buttons[0].label} →</span>
-            </Link>
-          )}
+
+          {item.buttons?.length ? (
+            <div className={styles.buttonWrapper}>
+              {item.buttons.map((btn, i) => (
+                <Link key={i} href={btn.url}>
+                  <span className={styles.linkButton}>{btn.label} →</span>
+                </Link>
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     </section>
@@ -70,7 +69,7 @@ const ServiceSection = ({ data }: Props) => {
     <>
       {data.map((item, index) => (
         <ServiceCard
-          key={item._id || index}
+          key={item.title || index}
           item={item}
           reverse={index % 2 !== 0}
         />

@@ -3,19 +3,11 @@ import Image from "next/image";
 import heroStyle from "@/styles/hero.module.css";
 
 type HeroData = {
-  _id: string;
-  title: string;
-  subtitle: string;
-  backgroundImage: string;
+  headline: string;
+  description: string;
+  imageUrl: string;
+  cta?: string;
   animationIcons: string[];
-  buttons: {
-    label: string;
-    link: string;
-    _id: string;
-  }[];
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
 };
 
 type Props = {
@@ -23,10 +15,7 @@ type Props = {
 };
 
 const HeroSection = ({ data }: Props) => {
-  const hero = data;
-  if (!hero) return null;
-
-  const { title, subtitle, backgroundImage, animationIcons } = hero;
+  const { description, headline, imageUrl, animationIcons } = data;
 
   const getIconClass = (index: number) => {
     const baseClass = heroStyle.push;
@@ -48,13 +37,13 @@ const HeroSection = ({ data }: Props) => {
         className={`${heroStyle.heroContainer} ${heroStyle.hero_digital_marketing}`}
       >
         <div className={heroStyle.hero}>
-          <h1 className={heroStyle.title}>{title}</h1>
-          <p>{subtitle}</p>
+          <h1 className={heroStyle.title}>{headline}</h1>
+          <p>{description}</p>
         </div>
 
         <div className={`${heroStyle.section_img} ${heroStyle.img_fluid}`}>
           <div className={heroStyle.icons}>
-            {animationIcons.map((icon, i) => (
+            {/* {animationIcons.map((icon, i) => (
               <Image
                 key={icon}
                 src={icon}
@@ -64,7 +53,7 @@ const HeroSection = ({ data }: Props) => {
                 decoding="async"
                 className={getIconClass(i)}
               />
-            ))}
+            ))} */}
 
             {/* <Image
               src="/assets/HomePageBanner/Facebook.png"
@@ -102,7 +91,10 @@ const HeroSection = ({ data }: Props) => {
 
           <div className={heroStyle.img_box}>
             <Image
-              src={backgroundImage}
+              src={
+                imageUrl ??
+                "https://dlterra.droitlab.com/wp-content/uploads/2022/09/digital-marketing.webp"
+              }
               alt="Hero Background"
               width={1500}
               height={300}

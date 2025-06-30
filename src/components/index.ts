@@ -14,3 +14,12 @@ export {
   AboutMembor,
   AboutScroller,
 } from "./AboutSection";
+
+export {
+  BannerSection,
+  BlogDetails,
+  BlogForm,
+  BlogQuote,
+} from "./BolgIdSection";
+
+export { BlogSection } from "./BlogSection";

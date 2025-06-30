@@ -1,6 +1,6 @@
 .serviceSection {
   padding: 20px 40px;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   display: flex;
   justify-content: center;
   gap: 100px;
@@ -52,6 +52,7 @@
   color: #000;
   margin-bottom: 30px;
   text-align: left;
+  font-family: "Literata", sans-serif;
 }
 
 .textWrapper p {

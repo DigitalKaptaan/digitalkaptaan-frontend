@@ -1,16 +1,22 @@
 import React from "react";
 import contact from "@/styles/contactus.module.css";
 export type Props = {
-  list: {
+  data: {
     _id: string;
-    title: string;
-    data: string;
-    iconPath: string;
-    iconContent: string;
+    address: string;
+    addressHeader: string;
+    addressIcon: string;
+    countryCode: string;
+    phoneNumber: string;
+    phoneHeader: string;
+    phoneIcon: string;
+    email: string;
+    emailHeader: string;
+    emailIcon: string;
     createdAt: string;
     updatedAt: string;
     __v: number;
-  }[];
+  };
 };
 
 const ContactCard = ({
@@ -28,15 +34,12 @@ const ContactCard = ({
       dangerouslySetInnerHTML={{ __html: Icon }}
     ></div>
     <div className={contact.contact_title}>{title}</div>
-    <div
-      className={contact.contact_info}
-      dangerouslySetInnerHTML={{ __html: info }}
-    />
+    <div className={contact.contact_info}>{info}</div>
   </div>
 );
 
 const GetinTouch = (props: Props) => {
-  const { list } = props;
+  const { data } = props;
 
   return (
     <section className={contact.body_wrapper}>
@@ -47,16 +50,21 @@ const GetinTouch = (props: Props) => {
         </h2>
 
         <div className={contact.contact_cards}>
-          {list.map((item, i) => {
-            return (
-              <ContactCard
-                key={i}
-                Icon={item.iconContent}
-                title={item.title}
-                info={item.data}
-              />
-            );
-          })}
+          <ContactCard
+            Icon={data.addressIcon}
+            title={data.addressHeader}
+            info={data.address}
+          />
+          <ContactCard
+            Icon={data.phoneIcon}
+            title={data.phoneHeader}
+            info={data.phoneNumber}
+          />
+          <ContactCard
+            Icon={data.emailIcon}
+            title={data.emailHeader}
+            info={data.email}
+          />
         </div>
       </div>
     </section>

@@ -52,7 +52,7 @@ const ContactForm = () => {
           <FormField
             label="First Name"
             id="first-name"
-            placeholder="Omar"
+            placeholder="Digital"
             name="firstName"
             value={values.firstName}
             onChange={handleChange}
@@ -61,7 +61,7 @@ const ContactForm = () => {
           <FormField
             label="Last Name"
             id="last-name"
-            placeholder="Faruk"
+            placeholder="Kaptaan"
             name="lastName"
             value={values.lastName}
             onChange={handleChange}
@@ -72,7 +72,7 @@ const ContactForm = () => {
             id="email"
             type="email"
             name="email"
-            placeholder="omarfaruk2y2@gmail.com"
+            placeholder="Example@gmail.com"
             value={values.email}
             onChange={handleChange}
             half
@@ -82,7 +82,7 @@ const ContactForm = () => {
             id="phone"
             name="phone"
             type="tel"
-            placeholder="+00 11 222 333 444"
+            placeholder="+91 870-070-0000"
             value={values.phone || ""}
             onChange={handleChange}
             half

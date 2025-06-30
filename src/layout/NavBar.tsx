@@ -1,21 +1,33 @@
 import React from "react";
-import { useMenu } from "@/hooks";
-import { usePathname } from "next/navigation";
 import navStyle from "@/styles/nav.module.css";
-import {  HamburgerToggle, Logo, NavLinks } from "@/components";
-const NavBar: React.FC = () => {
+import { HamburgerToggle, Logo, NavLinks } from "@/components";
+import { usePathname } from "next/navigation";
+
+type subMenu = {
+  external?: boolean;
+  label: string;
+  url: string;
+  order: number;
+};
+
+type NavBarProps = {
+  menu: {
+    children: subMenu[];
+    external?: boolean;
+    label: string;
+    url: string;
+    order: number;
+  }[];
+};
+
+const NavBar: React.FC<NavBarProps> = ({ menu }) => {
   const pathname = usePathname();
-  const { menu, isLoading, error } = useMenu();
-
-  if (isLoading) return <div>Loading menu...</div>;
-  if (error) return <div>Error loading menu</div>;
-
   return (
     <nav className={navStyle.navbar}>
       <div className={navStyle.nav_container}>
         <Logo />
         <HamburgerToggle />
-        <NavLinks menu={menu?.data || []} pathname={pathname} />
+        <NavLinks menu={menu || []} pathname={pathname} />
       </div>
     </nav>
   );

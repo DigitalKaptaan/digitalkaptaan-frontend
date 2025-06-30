@@ -1,4 +1,4 @@
-import { postContactForm } from "@/services";
+import { postContactForm } from "@/lib/server";
 import { useState } from "react";
 
 export type ContactFormValues = {
@@ -11,12 +11,6 @@ export type ContactFormValues = {
 };
 
 const useContact = () => {
-  // const {
-  //   data: contactList,
-  //   error: fetchError,
-  //   isLoading,
-  // } = useSWR("contactList", fetchContactList);
-
   const [values, setValues] = useState<ContactFormValues>({
     firstName: "",
     lastName: "",

@@ -6,15 +6,19 @@ import { formatDate } from "@/utils";
 
 type Props = {
   blogList: {
+    meta?: {
+      keywords?: string[];
+      description?: string;
+      title?: string;
+    };
     _id: string;
     title: string;
-    description: string;
-    image: string;
-    category: string;
-    slug: string;
-    isPublished: boolean;
+    content: string;
+    coverImage: string;
+    status: string;
     createdAt: string;
     updatedAt: string;
+    slug: string;
     __v: number;
   }[];
 };
@@ -40,10 +44,10 @@ const BlogSection = ({ blogList }: Props) => {
           >
             <div className={Blog.card}>
               <div className={Blog.card_image}>
-                <span className={Blog.tag}>{blog.category}</span>
+                <span className={Blog.tag}>Digital Kaptaan</span>
                 <Image
-                  src={blog.image}
-                  alt={blog.image}
+                  src={blog.coverImage}
+                  alt={blog.coverImage}
                   width={300}
                   height={300}
                 />

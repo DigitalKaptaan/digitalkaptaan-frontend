@@ -39,7 +39,8 @@
   position: relative;
 }
 
-.nav_links a {
+.nav_links li a {
+  font-family: "Montserrat", Sans-serif;
   text-decoration: none;
   color: var(--text-color);
   font-weight: 500;
@@ -48,8 +49,8 @@
   transition: color var(--transition);
 }
 
-.nav_links a.active,
-.nav_links a:hover {
+.nav_links li a.active,
+.nav_links li a:hover {
   color: var(--primary-color);
 }
 
@@ -94,7 +95,7 @@
   border-bottom: 10px solid var(--bg-white);
 }
 
-.dropdown_menu li  {
+.dropdown_menu li {
   list-style: none;
 }
 
@@ -178,7 +179,7 @@
     width: 100%;
   }
 
-  .nav_links a {
+  .nav_links li a {
     width: 100%;
     padding-left: 1rem;
   }

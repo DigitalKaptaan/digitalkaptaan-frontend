@@ -1,9 +1,10 @@
-import { HomeApi } from "@/lib";
+import { ContactFormValues } from "@/hooks/useContact";
+import { ContactApi } from "../api";
 
-export const fetchHomeData = async () => {
+export const postContactForm = async (values: ContactFormValues) => {
   try {
-    const response = await HomeApi.getHomeData();
-    if (response.code === 200) {
+    const response = await ContactApi.postCustomerRequest(values);
+    if (response.code === 201) {
       return response.data;
     } else {
       throw response.data;

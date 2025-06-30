@@ -2,21 +2,18 @@ import React from "react";
 import CountUp from "react-countup";
 import about from "@/styles/about.module.css";
 
-const statsData = [
-  { number: 65, suffix: "K", label: "Active Subscribers", color: "blue" },
-  { number: 99, suffix: "%", label: "Customer Satisfaction", color: "yellow" },
-  { number: 500, suffix: "+", label: "Completed Projects", color: "green" },
-  { number: 150, suffix: "+", label: "Countries Available", color: "red" },
-];
+type Props = {
+  data: { label: string; value: number; color: string; suffix: string }[];
+};
 
-const AboutScroller = () => {
+const AboutScroller = ({ data }: Props) => {
   return (
     <section className={about.statsSection}>
-      {statsData.map((item, index) => (
+      {data.map((item, index) => (
         <div key={index} className={about.stat}>
-          <h2 className={`${about.number} ${about[item.color]}`}>
+          <h2 className={`${about.value} ${about[item.color]}`}>
             <CountUp
-              end={item.number}
+              end={item.value}
               duration={2}
               suffix={item.suffix}
               enableScrollSpy
