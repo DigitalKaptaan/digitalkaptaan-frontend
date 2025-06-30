@@ -15,21 +15,21 @@ type Props = {
 };
 
 const HeroSection = ({ data }: Props) => {
-  const { description, headline, imageUrl, animationIcons } = data;
+  const { description, headline, imageUrl } = data;
 
-  const getIconClass = (index: number) => {
-    const baseClass = heroStyle.push;
-    switch (index) {
-      case 0:
-        return `${heroStyle.one} ${baseClass}`;
-      case 1:
-        return `${heroStyle.two} ${baseClass}`;
-      case 2:
-        return `${heroStyle.four} ${baseClass}`;
-      default:
-        return `${heroStyle.five} ${baseClass}`;
-    }
-  };
+  // const getIconClass = (index: number) => {
+  //   const baseClass = heroStyle.push;
+  //   switch (index) {
+  //     case 0:
+  //       return `${heroStyle.one} ${baseClass}`;
+  //     case 1:
+  //       return `${heroStyle.two} ${baseClass}`;
+  //     case 2:
+  //       return `${heroStyle.four} ${baseClass}`;
+  //     default:
+  //       return `${heroStyle.five} ${baseClass}`;
+  //   }
+  // };
 
   return (
     <div className={heroStyle.font}>
