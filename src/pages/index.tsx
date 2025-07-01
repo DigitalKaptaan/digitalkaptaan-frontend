@@ -1,10 +1,12 @@
 import Head from "next/head";
 import {
   BusinessSection,
+  Feature,
   HeroSection,
   HomeSign,
   NumberSection,
   ServiceSection,
+  TrustedCompanies,
 } from "@/components";
 import { withMenuAndPageData } from "@/lib/server";
 
@@ -150,6 +152,9 @@ export default function Home({ metaData, pageData, pageHasError }: Props) {
               return null;
           }
         })}
+
+<TrustedCompanies />
+<Feature />
 
       <HomeSign />
     </div>

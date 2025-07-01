@@ -1,0 +1,114 @@
+.trusted_section {
+  text-align: center;
+  padding: 20px 20px;
+  background:  url('/assets/svg_home.svg') bottom center no-repeat;
+  background-size:contain;
+  margin-top: 30px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.trusted_heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #111;
+}
+
+.highlight {
+  color: #f97316;
+}
+
+/* Wrapper with horizontal scroll */
+.scroll_wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* ✅ Hide scrollbar in global scope via nesting inside the local class */
+.scroll_wrapper :global(::-webkit-scrollbar) {
+  display: none;
+}
+
+/* Flex container for logos */
+.trusted_logos {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding: 10px 0;
+}
+
+/* Card around each logo */
+.logo_item {
+  flex: 0 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Logo image styling */
+.logo_item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* Responsive Media Queries */
+@media only screen and (max-width: 600px) {
+  .trusted_heading {
+    font-size: 1.5rem;
+  }
+  .logo_item {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .logo_item {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .logo_item {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .logo_item {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+   .trusted_heading {
+    font-size: 2.5rem;
+    margin-bottom: .5rem;
+  }
+  .logo_item {
+    width: 150px;
+    height: 150px;
+  }
+}

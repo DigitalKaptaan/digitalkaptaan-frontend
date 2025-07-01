@@ -55,6 +55,7 @@ type PageSection =
   | (SectionBase & { type: "about-services"; content: ServicesSectionContent })
   | (SectionBase & { type: "about-stats"; content: StatsSectionContent })
   | (SectionBase & { type: "about-team"; content: TeamSectionContent });
+  
 
 type PageData = {
   _id: string;
