@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "@/styles/Footer.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export type FooterNavItem = {
   label: string;
@@ -48,12 +49,27 @@ const Footer = ({ footer, contact }: FooterNavigation) => {
               </div>
               <div className={styles.contact}>
                 <h3>Call us</h3>
-                <a href={`tel:${contact.countryCode}${contact.phoneNumber}`}>
+                <Link
+                  href={`tel:${contact.countryCode}${contact.phoneNumber}`}
+                  style={{
+                    textDecoration: "underline",
+                  }}
+                >
                   {contact.phoneNumber}
-                </a>
-                <p>{contact.address}</p>
-                <p>
-                  <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                </Link>
+                <p
+                  style={{
+                    textDecoration: "underline",
+                  }}
+                >
+                  {contact.address}
+                </p>
+                <p
+                  style={{
+                    textDecoration: "underline",
+                  }}
+                >
+                  <Link href={`mailto:${contact.email}`}>{contact.email}</Link>
                 </p>
               </div>
             </div>
@@ -65,14 +81,14 @@ const Footer = ({ footer, contact }: FooterNavigation) => {
                   <ul>
                     {section?.children?.map((link, linkIndex) => (
                       <li key={linkIndex}>
-                        <a
+                        <Link
                           href={link.url}
                           {...(link.external
                             ? { target: "_blank", rel: "noopener noreferrer" }
                             : {})}
                         >
                           {link.label}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
