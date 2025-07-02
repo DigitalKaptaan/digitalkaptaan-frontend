@@ -1,4 +1,4 @@
-const isProduction = false;
+const isProduction = true;
 export const BASE_URL = isProduction
   ? // ? "https://digital-backend-95u1.onrender.com/"
     "https://digitalkaptaan-backend.onrender.com/"
