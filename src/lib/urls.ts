@@ -1,7 +1,6 @@
 const isProduction = true;
 export const BASE_URL = isProduction
-  ? // ? "https://digital-backend-95u1.onrender.com/"
-    "https://digitalkaptaan-backend.onrender.com/"
+  ? "https://codewithsachin.in/"
   : "http://localhost:8000";
 export const URLS = {
   META: {
