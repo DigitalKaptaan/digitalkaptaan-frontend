@@ -5,6 +5,7 @@ export {
   HomeSign,
   NumberSection,
   ServiceSection,
+  TrustedCompanies
 } from "./home";
 export { ContactForm, GetinTouch } from "./contactus";
 export {
@@ -23,3 +24,4 @@ export {
 } from "./BolgIdSection";
 
 export { BlogSection } from "./BlogSection";
+export { Feature, NumScroller, ServiceHero } from "./OurServices";

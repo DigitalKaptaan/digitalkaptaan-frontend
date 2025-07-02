@@ -27,7 +27,10 @@ const NavBar: React.FC<NavBarProps> = ({ menu }) => {
       <div className={navStyle.nav_container}>
         <Logo />
         <HamburgerToggle />
-        <NavLinks menu={menu || []} pathname={pathname} />
+        <NavLinks
+          menu={menu.sort((a, b) => a.order - b.order) || []}
+          pathname={pathname}
+        />
       </div>
     </nav>
   );

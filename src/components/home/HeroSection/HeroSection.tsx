@@ -42,52 +42,7 @@ const HeroSection = ({ data }: Props) => {
         </div>
 
         <div className={`${heroStyle.section_img} ${heroStyle.img_fluid}`}>
-          <div className={heroStyle.icons}>
-            {/* {animationIcons.map((icon, i) => (
-              <Image
-                key={icon}
-                src={icon}
-                width={60}
-                height={70}
-                alt={`Icon ${i + 1}`}
-                decoding="async"
-                className={getIconClass(i)}
-              />
-            ))} */}
-
-            {/* <Image
-              src="/assets/HomePageBanner/Facebook.png"
-              width={40}
-              height={60}
-              alt="Facebook"
-              decoding="async"
-              className={`${heroStyle.one} ${heroStyle.push}`}
-            />
-            <Image
-              src="/assets/HomePageBanner/Snapchat.png"
-              width={40}
-              height={65}
-              alt="Snapchat"
-              decoding="async"
-              className={`${heroStyle.two} ${heroStyle.push}`}
-            />
-            <Image
-              src="/assets/HomePageBanner/Twitter.png"
-              width={70}
-              height={60}
-              alt="Twitter"
-              decoding="async"
-              className={`${heroStyle.four} ${heroStyle.push}`}
-            />
-            <Image
-              src="/assets/HomePageBanner/instagramm.png"
-              width={50}
-              height={50}
-              alt="Instagram"
-              decoding="async"
-              className={`${heroStyle.five} ${heroStyle.push}`}
-            /> */}
-          </div>
+          <div className={heroStyle.icons}></div>
 
           <div className={heroStyle.img_box}>
             <Image
@@ -98,8 +53,7 @@ const HeroSection = ({ data }: Props) => {
               alt="Hero Background"
               width={1500}
               height={300}
-              style={{ width: "140%", height: "100%" }}
-              className={`${heroStyle.heroImage} ${heroStyle.minn}`}
+              className={`${heroStyle.heroImage}`} // Removed .minn unless you need it
               priority
             />
           </div>

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap');
 
+/* -------------------- Font -------------------- */
 .literata {
   font-family: "Literata", serif;
   font-optical-sizing: auto;
@@ -8,20 +9,25 @@
 }
 
 .literata-light {
-    font-family: "Literata", serif;
-    font-weight: 800;
-    font-style: normal;
+  font-family: "Literata", serif;
+  font-weight: 800;
+  font-style: normal;
 }
 
+.font {
+  font-family: "Literata", serif;
+}
+
+/* -------------------- Hero Section -------------------- */
 .heroContainer {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 1300px;
+  max-width: 1200px;
   padding: 2rem 1rem;
   margin: auto;
-  gap: 2rem;
+  gap: 1.25rem;
 }
 
 .hero {
@@ -32,7 +38,6 @@
   text-align: start;
   padding: 2rem;
 }
-
 
 .title {
   font-family: "Literata", serif;
@@ -55,20 +60,41 @@
   margin-bottom: 1.5rem;
 }
 
-.imageContainer {
+/* -------------------- Image & Animation -------------------- */
+.section_img {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.heroImage {
-  max-width: 100%;
-  height: auto;
-  max-height: 500px;
+.img_box {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
 }
 
-/* Tablet View */
+.heroImage {
+  max-width: 110%;
+  height: auto;
+  max-height: 500px;
+  animation: floatUpDown 4s ease-in-out infinite;
+}
+
+/* -------------------- Animation -------------------- */
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* -------------------- Tablet View -------------------- */
 @media (max-width: 1024px) {
   .heroContainer {
     flex-direction: column;
@@ -90,10 +116,11 @@
     margin: 0;
     font-size: 16px;
     line-height: 28px;
+    text-align: center;
   }
 }
 
-/* Mobile View */
+/* -------------------- Mobile View -------------------- */
 @media (max-width: 600px) {
   .heroContainer {
     flex-direction: column-reverse;
@@ -118,7 +145,7 @@
     margin: 0;
   }
 
-  .imageContainer {
+  .img_box {
     width: 100%;
     margin-top: 1rem;
   }
@@ -128,394 +155,3 @@
     height: auto;
   }
 }
-
-
-/* .img-fluid {
-    max-width: 100%;
-    height: auto;
-} */
-
-.hero_digital_marketing .section_img .img_box {
-    position: relative;
-    /* width: 50%; */
-}
-
-.hero_digital_marketing .section_img .img_box .minn {
-    margin-left: -40px;
-    max-width: inherit;
-}
-
-.hero_digital_marketing .section_img .img_box .onen {
-    position: absolute;
-    left: -140px;
-    top: 390px;
-    width: 95%;
-}
-
-.hero_digital_marketing .section_img .img_box .twon {
-    position: absolute;
-    width: 100%;
-    left: 290px;
-    bottom: -85px;
-}
-
-.hero_digital_marketing .section_img .icons {
-    position: relative;
-}
-
-.hero_digital_marketing .section_img .icons img {
-    position: absolute;
-}
-
-.hero_digital_marketing .section_img .icons img.one {
-    width: 63px;
-    top: 180px;
-    left: 0;
-}
-
-.hero_digital_marketing .section_img .icons img.one.push {
-    animation-duration: 3s;
-}
-
-.hero_digital_marketing .section_img .icons img.two {
-    width: 66px;
-    top: -30px;
-    left: 80px;
-}
-
-.hero_digital_marketing .section_img .icons img.two.push {
-    animation-duration: 4s;
-}
-
-.hero_digital_marketing .section_img .icons img.three {
-    top: 280px;
-    right: 155px;
-}
-
-.hero_digital_marketing .section_img .icons img.three.push {
-    animation-duration: 5s;
-}
-
-.hero_digital_marketing .section_img .icons img.four {
-    width: 56px;
-    top: 8px;
-    right: 0px;
-}
-
-.hero_digital_marketing .section_img .icons img.four.push {
-    animation-duration: 4.5s;
-}
-
-.hero_digital_marketing .section_img .icons img.five {
-    top: 150px;
-    /* right: -235px; */
-}
-
-.hero_digital_marketing .section_img .icons img.six {
-    width: 68px;
-    top: 285px;
-    /* right: -165px; */
-}
-
-.hero_digital_marketing .section_img .icons img.six.push {
-    animation-duration: 6s;
-}
-
-.hero_digital_marketing .section_img .icons .push {
-    animation: push 5s infinite;
-}
-
-@keyframes push {
-    0% {
-        transform: translate(0px, 0px);
-    }
-
-    50% {
-        transform: translate(0, 15px);
-    }
-
-    75% {
-        transform: translate(0, -15px);
-    }
-
-    100% {
-        transform: translate(0px, 0px);
-    }
-}
-
-
-
-
-.hero_digital_marketing .section_img .img_box {
-    position: relative;
-}
-
-.hero_digital_marketing .section_img .img_box .minn {
-    margin-left: -40px;
-    max-width: inherit;
-}
-
-.hero_digital_marketing .section_img .img_box .onen {
-    position: absolute;
-    left: -140px;
-    top: 390px;
-    width: 95%;
-}
-
-.hero_digital_marketing .section_img .img_box .twon {
-    position: absolute;
-    width: 100%;
-    left: 290px;
-    bottom: -85px;
-}
-
-.hero_digital_marketing .section_img .icons {
-    position: relative;
-}
-
-.hero_digital_marketing .section_img .icons img {
-    position: absolute;
-}
-
-.hero_digital_marketing .section_img .icons img.one {
-    width: 63px;
-    top: 180px;
-    left: 0;
-}
-
-.hero_digital_marketing .section_img .icons img.one.push {
-    animation-duration: 3s;
-}
-
-.hero_digital_marketing .section_img .icons img.two {
-    width: 66px;
-    top: -30px;
-    left: 80px;
-}
-
-.hero_digital_marketing .section_img .icons img.two.push {
-    animation-duration: 4s;
-}
-
-.hero_digital_marketing .section_img .icons img.three {
-    top: 280px;
-    right: 155px;
-}
-
-.hero_digital_marketing .section_img .icons img.three.push {
-    animation-duration: 5s;
-}
-
-.hero_digital_marketing .section_img .icons img.four {
-    width: 56px;
-    top: 8px;
-    /* right: -120px; */
-}
-
-.hero_digital_marketing .section_img .icons img.four.push {
-    animation-duration: 4.5s;
-}
-
-.hero_digital_marketing .section_img .icons img.five {
-    top: 150px;
-    right: -25px;
-}
-
-.hero_digital_marketing .section_img .icons img.six {
-    width: 68px;
-    top: 285px;
-    right: -15px;
-}
-
-.hero_digital_marketing .section_img .icons img.six.push {
-    animation-duration: 6s;
-}
-
-.hero_digital_marketing .section_img .icons .push {
-    animation: push 5s infinite;
-}
-
-@keyframes push {
-    0% {
-        transform: translate(0px, 0px);
-    }
-
-    50% {
-        transform: translate(0, 15px);
-    }
-
-    75% {
-        transform: translate(0, -15px);
-    }
-
-    100% {
-        transform: translate(0px, 0px);
-    }
-}
-
-@media(max-width: 1201px) {
-    .hero_digital_marketing .section_img .img_box .minn {
-        margin-left: -200px;
-    }
-
-    .hero_digital_marketing .section_img .img_box .onen {
-        left: -235px;
-    }
-
-    .hero_digital_marketing .section_img .img_box .twon {
-        left: 120px;
-    }
-
-    .hero_digital_marketing .section_img .icons img.one {
-        left: -200px;
-    }
-
-    .hero_digital_marketing .section_img .icons img.two {
-        top: 0px;
-        left: -180px;
-    }
-
-    .hero_digital_marketing .section_img .icons img.three {
-        right: 403px;
-    }
-
-    .hero_digital_marketing .section_img .icons img.four {
-        right: 140px;
-    }
-
-    .hero_digital_marketing .section_img .icons img.five {
-        right: 85px;
-    }
-
-    .hero_digital_marketing .section_img .icons img.six {
-        right: 100px;
-    }
-
-    .hero_digital_marketing {
-        padding: 20px 0 10px 0;
-    }
-}
-
-@media(max-width: 1024px) {
-    .hero_digital_marketing .section_img .img_box .minn {
-        margin-left: -20px;
-    }
-
-    .hero_digital_marketing .section_img .img_box .minn {
-        margin-left: 0;
-        max-width: -webkit-fill-available;
-    }
-
-    .hero_digital_marketing .section_img .icons img.two {
-        top: 43px;
-        left: 59px;
-    }
-
-    .hero_digital_marketing .section_img .icons img.one {
-        left: 0;
-    }
-
-    .hero_digital_marketing .section_img .icons img.three {
-        right: 329px;
-        top: 246px;
-    }
-
-    .hero_digital_marketing .section_img .icons img.four {
-        right: 90px;
-        top: 50px;
-    }
-
-    .hero_digital_marketing .section_img .icons img.six {
-        right: 60px;
-        top: 245px;
-    }
-
-    .hero_digital_marketing .section_img .icons img.five {
-        right: 57px;
-    }
-
-    .hero_digital_marketing .section_img .img_box .onen {
-        left: -36px;
-        width: 43%;
-        top: 319px;
-    }
-
-    .hero_digital_marketing .section_img .img_box .twon {
-        left: 216px;
-        width: 60%;
-    }
-}
-
-@media(max-width: 768px) {
-    .hero_digital_marketing .col-md-6 {
-        width: 100%;
-    }
-
-    .hero_digital_marketing .row {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .hero_digital_marketing .section_img .img_box .minn {
-        margin-left: 30px;
-    }
-
-    .hero_digital_marketing .section_img .icons img.three {
-        left: 148px;
-        top: 300px;
-    }
-
-    .hero_digital_marketing .section_img .img_box .onen {
-        top: 422px;
-    }
-
-    .hero_digital_marketing .section_img .img_box .twon {
-        left: 281px;
-    }
-}
-
-@media(max-width: 767px) {
-    .hero_digital_marketing .content .buttons_area {
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    .hero_digital_marketing .content .buttons_area .digital_m_btn {
-        margin-right: unset;
-    }
-
-    .hero_digital_marketing .section_img .img_box .onen {
-        top: 240px;
-    }
-
-    .hero_digital_marketing .section_img .img_box .twon {
-        left: 160px;
-        bottom: -60px;
-    }
-
-    .hero_digital_marketing .section_img .icons img.two {
-        left: 0;
-    }
-
-    .hero_digital_marketing .section_img .icons img.four {
-        right: 0;
-    }
-
-    .hero_digital_marketing .section_img .icons img.five {
-        right: 0;
-    }
-
-    .hero_digital_marketing .section_img .icons img.six {
-        right: 0;
-        top: 222px;
-        width: 14%;
-    }
-
-    .hero_digital_marketing .section_img .icons img.three {
-        left: 70px;
-        top: 105px;
-    }
-}
-
-
-
