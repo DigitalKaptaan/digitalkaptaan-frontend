@@ -33,7 +33,8 @@ const AboutMembor = ({ data }: Props) => {
                       src={imageUrl}
                       height={250}
                       width={250}
-                      alt="Lee Bowman"
+                      alt={name}
+                      priority
                     />
                   </div>
                   <h3>{name}</h3>

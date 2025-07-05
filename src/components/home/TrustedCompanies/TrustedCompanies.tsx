@@ -1,50 +1,35 @@
-import React from 'react'
+import React from "react";
 import styles from "@/styles/TrustedCompanies.module.css";
-import Image from 'next/image';
+import Image from "next/image";
 
-const listData = [
-  {
-    image: "/Trusted_img/Whitefalcon-Logo-300x168.webp"
-  },
-  {
-    image: "/Trusted_img/4A-Logo-White-BG-01-150x150.webp"
-  },
-  {
-    image: "/Trusted_img/Eazynappy-logo-original-150x150.webp"
-  },
-  {
-    image: "/Trusted_img/wordscloud-logo-150x150.webp"
-  },
-  {
-    image: "/Trusted_img/pawslogo2-300x282.webp"
-  },
-  {
-    image: "/Trusted_img/kainiche-logo-150x150.webp"
-  },
-  {
-        image: "/Trusted_img/Whitefalcon-Logo-300x168.webp"
-  },
-  {
-        image: "/Trusted_img/4A-Logo-White-BG-01-150x150.webp"
-  }
-];
+type Props = {
+  data: {
+    headline1: string;
+    headline2: string;
+    headline3: string;
+    items: string[];
+  };
+};
 
-const TrustedCompanies = () => {
+const TrustedCompanies = ({ data }: Props) => {
   return (
     <div className={styles.trusted_section}>
       <div className={styles.container}>
         <h2 className={styles.trusted_heading}>
-          Trusted by <span className={styles.highlight}>50+</span> amazing companies worldwide
+          {data.headline1}{" "}
+          <span className={styles.highlight}>{data.headline2}</span>{" "}
+          {data.headline3}
         </h2>
         <div className={styles.scroll_wrapper}>
           <div className={styles.trusted_logos}>
-            {listData.map((item, index) => (
+            {data.items.map((item, index) => (
               <div className={styles.logo_item} key={index}>
                 <Image
-                  src={item.image}
+                  src={item}
                   width={100}
                   height={100}
                   alt={`Company ${index + 1}`}
+                  priority
                 />
               </div>
             ))}
@@ -52,7 +37,7 @@ const TrustedCompanies = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default TrustedCompanies;

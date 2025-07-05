@@ -45,6 +45,7 @@ const Footer = ({ footer, contact }: FooterNavigation) => {
                   src="/white-logo.svg"
                   alt="Terra Logo"
                   className={styles.logo_icon}
+                  priority
                 />
               </div>
               <div className={styles.contact}>

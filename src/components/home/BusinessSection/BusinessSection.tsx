@@ -60,6 +60,7 @@ const BusinessSection = ({ data }: Props) => {
                       width={100}
                       height={100}
                       alt="icon"
+                      priority
                     />
                   </div>
                   <h3>{item.title}</h3>

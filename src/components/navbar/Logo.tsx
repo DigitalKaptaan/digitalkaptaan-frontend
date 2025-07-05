@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 const Logo = () => (
   <Link href="/">
-  <div className={`${navStyle.logo}`}>
-    <Image width={10} height={50} src="/terra-logo.svg" alt="Logo" />
-  </div>
+    <div className={`${navStyle.logo}`}>
+      <Image width={10} height={50} src="/terra-logo.svg" alt="Logo" priority />
+    </div>
   </Link>
 );
 

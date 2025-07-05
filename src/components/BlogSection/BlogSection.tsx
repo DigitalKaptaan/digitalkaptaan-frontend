@@ -50,6 +50,7 @@ const BlogSection = ({ blogList }: Props) => {
                   alt={blog.coverImage}
                   width={300}
                   height={300}
+                  priority
                 />
               </div>
               <h3>{blog.title}</h3>

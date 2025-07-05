@@ -9,113 +9,20 @@ import {
   TrustedCompanies,
 } from "@/components";
 import { withMenuAndPageData } from "@/lib/server";
+import { HomeProps } from "@/types";
 
-type HeroSection = {
-  type: "hero";
-  content: {
-    headline: string;
-    description: string;
-    imageUrl: string;
-    cta?: string;
-    animationIcons: string[];
-  };
-};
-
-type StatsSection = {
-  type: "stats";
-  content: {
-    items: {
-      label: string;
-      value: number;
-      color: string;
-      suffix: string;
-    }[];
-  };
-};
-
-type FeaturesSection = {
-  type: "features";
-  content: {
-    items: {
-      title: string;
-      description: string[];
-      imageUrl: string;
-      buttons?: {
-        label: string;
-        url: string;
-      }[];
-    }[];
-  };
-};
-
-type ServiceCardsSection = {
-  type: "serviceCards";
-  content: {
-    title: string;
-    cards: {
-      icon: string;
-      title: string;
-      description: string;
-    }[];
-  };
-};
-
-type HomeSection =
-  | HeroSection
-  | StatsSection
-  | FeaturesSection
-  | ServiceCardsSection;
-
-type ExtendedSection = HomeSection & {
-  _id: string;
-  order: number;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-};
-
-// === Page Data Type ===
-
-type PageData = {
-  _id: string;
-  name: string;
-  slug: string;
-  sections: ExtendedSection[];
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-};
-
-type Props = {
-  metaData: {
-    _id: string;
-    page: string;
-    title: string;
-    description: string;
-    keywords: string[];
-    ogTitle: string;
-    ogDescription: string;
-    ogImage: string;
-    createdAt: string;
-    updatedAt: string;
-    __v: number;
-  };
-  pageData: PageData;
-  pageHasError: boolean;
-};
-
-export default function Home({ metaData, pageData, pageHasError }: Props) {
+export default function Home({ metaData, pageData, pageHasError }: HomeProps) {
   if (pageHasError || !pageData) {
     return (
-      <div style={{ padding: "3rem", textAlign: "center" }}>
+      <main style={{ padding: "3rem", textAlign: "center" }}>
         <h1>⚠️ Oops! Something went wrong.</h1>
         <p>Please try again later or contact support.</p>
-      </div>
+      </main>
     );
   }
 
   return (
-    <div>
+    <main>
       <Head>
         <title>{metaData.title}</title>
         <meta name="description" content={metaData.description} />
@@ -148,16 +55,19 @@ export default function Home({ metaData, pageData, pageHasError }: Props) {
               return (
                 <BusinessSection key={section._id} data={section.content} />
               );
+            case "trusted-partners":
+              return (
+                <TrustedCompanies key={section._id} data={section.content} />
+              );
+            case "basic-features":
+              return <Feature key={section._id} data={section.content} />;
             default:
               return null;
           }
         })}
 
-<TrustedCompanies />
-<Feature />
-
       <HomeSign />
-    </div>
+    </main>
   );
 }
 

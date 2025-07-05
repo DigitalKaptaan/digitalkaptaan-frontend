@@ -14,7 +14,13 @@ const BlogDetails = (props: Props) => {
       <section className={Id.content_section}>
         <div className={Id.content_wrapper}>
           <div className={Id.image_box}>
-            <Image src={image} width={500} height={500} alt="Illustration" />
+            <Image
+              src={image}
+              width={500}
+              height={500}
+              alt="Illustration"
+              priority
+            />
           </div>
           <div
             className={Id.text_box}
