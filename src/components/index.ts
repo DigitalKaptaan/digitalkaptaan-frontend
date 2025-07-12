@@ -5,7 +5,9 @@ export {
   HomeSign,
   NumberSection,
   ServiceSection,
-  TrustedCompanies
+  TrustedCompanies,
+  FaqSection,
+  MarketingSection,
 } from "./home";
 export { ContactForm, GetinTouch } from "./contactus";
 export {

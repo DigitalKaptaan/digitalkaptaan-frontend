@@ -7,6 +7,8 @@ import {
   NumberSection,
   ServiceSection,
   TrustedCompanies,
+  FaqSection,
+  MarketingSection
 } from "@/components";
 import { withMenuAndPageData } from "@/lib/server";
 import { HomeProps } from "@/types";
@@ -65,7 +67,8 @@ export default function Home({ metaData, pageData, pageHasError }: HomeProps) {
               return null;
           }
         })}
-
+<FaqSection />
+      <MarketingSection />
       <HomeSign />
     </main>
   );
