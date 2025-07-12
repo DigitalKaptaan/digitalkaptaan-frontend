@@ -7,8 +7,8 @@ const HomeSign = () => {
       <div className={styles.page_container}>
         <section className={styles.work_with_us}>
           <div className={styles.container}>
-            <h2>Ready to work with us!</h2>
-            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua quis nostrud exerc dolores eos qui ratione</p>
+            <h2>Join us!</h2>
+            <p>Where your ambition meets opportunity!</p>
             <div className={styles.bg_form}>
               <form className={styles.email_form}>
                 <input

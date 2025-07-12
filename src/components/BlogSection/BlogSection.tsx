@@ -1,8 +1,6 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import Blog from "@/styles/blog.module.css";
-import { formatDate } from "@/utils";
+import { CustomBlogCard } from "@/common";
 
 type Props = {
   blogList: {
@@ -34,33 +32,7 @@ const BlogSection = ({ blogList }: Props) => {
           <span className={Blog.highlight}>latest </span> articles
         </h2>
       </div>
-
-      <div className={Blog.blog_cards}>
-        {blogList.map((blog) => (
-          <Link
-            href={`/blogs/${blog.slug}`}
-            key={blog._id}
-            className={Blog.card_link}
-          >
-            <div className={Blog.card}>
-              <div className={Blog.card_image}>
-                <span className={Blog.tag}>Digital Kaptaan</span>
-                <Image
-                  src={blog.coverImage}
-                  alt={blog.coverImage}
-                  width={300}
-                  height={300}
-                  priority
-                />
-              </div>
-              <h3>{blog.title}</h3>
-              <p className={Blog.meta}>
-                {formatDate(new Date(blog.updatedAt))}
-              </p>
-            </div>
-          </Link>
-        ))}
-      </div>
+      <CustomBlogCard blogList={blogList} />
     </section>
   );
 };

@@ -12,6 +12,8 @@ import {
 } from "@/components";
 import { withMenuAndPageData } from "@/lib/server";
 import { HomeProps } from "@/types";
+import { CustomBlogCard } from "@/common";
+import styles from "@/styles/Home.module.css";
 
 export default function Home({ metaData, pageData, pageHasError }: HomeProps) {
   if (pageHasError || !pageData) {
@@ -68,7 +70,19 @@ export default function Home({ metaData, pageData, pageHasError }: HomeProps) {
           }
         })}
       <FaqSection />
-      <BlogSection blogList={pageData?.latestBlogs} />
+
+      <section className={styles.feature_section}>
+        <div className={styles.feature_container}>
+          <div className={styles.feature_heading}>
+            <h2>Read our marketing articles to know more</h2>
+          </div>
+
+          <div className={styles.feature_grid}>
+            <CustomBlogCard blogList={pageData?.latestBlogs} />
+          </div>
+        </div>
+      </section>
+
       <HomeSign />
     </main>
   );
