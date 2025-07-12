@@ -12,15 +12,18 @@ const FaqSection = () => {
   const faqs = [
     {
       question: "What is the benefits of digital marketing?",
-      answer:        "Consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua quis nostrud exerc dolores eos qui ratione.",
+      answer:
+        "Consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua quis nostrud exerc dolores eos qui ratione.",
     },
     {
       question: "What is social media promotion?",
-      answer: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua quis nostrud exerc dolores eos qui ratione",
+      answer:
+        "Consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua quis nostrud exerc dolores eos qui ratione",
     },
     {
       question: "How to join your referral program?",
-      answer: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua quis nostrud exerc dolores eos qui ratione",
+      answer:
+        "Consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua quis nostrud exerc dolores eos qui ratione",
     },
   ];
 
@@ -29,7 +32,7 @@ const FaqSection = () => {
       <div className={faqStyle.faq_container}>
         <div className={faqStyle.faq_image}>
           <Image
-              src="/assets/dm_faq.png"
+            src="/assets/dm_faq.png"
             width={450}
             height={500}
             alt="dm_faq"

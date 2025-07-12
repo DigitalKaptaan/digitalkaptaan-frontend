@@ -50,12 +50,11 @@
   transition: transform 0.3s;
 }
 
-
 .faq_question {
   font-weight: 600;
   font-size: 1.2rem;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   cursor: pointer;
 }
