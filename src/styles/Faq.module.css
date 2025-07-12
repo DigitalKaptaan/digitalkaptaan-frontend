@@ -52,7 +52,7 @@
 
 .faq_question {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -71,7 +71,7 @@
 }
 
 .faq_answer {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   color: #666;
   margin-top: 10px;
   max-height: 0;
@@ -81,8 +81,10 @@
 }
 
 .active .faq_answer {
-  max-height: 100px; /* or more if your content is longer */
+  max-height: 250px; /* or more if your content is longer */
   opacity: 1;
+  overflow: auto;
+  margin-left: 20px;
 }
 
 .active .faq_arrow {
