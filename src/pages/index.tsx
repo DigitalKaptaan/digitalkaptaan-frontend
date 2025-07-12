@@ -8,7 +8,6 @@ import {
   ServiceSection,
   TrustedCompanies,
   FaqSection,
-  BlogSection,
 } from "@/components";
 import { withMenuAndPageData } from "@/lib/server";
 import { HomeProps } from "@/types";
