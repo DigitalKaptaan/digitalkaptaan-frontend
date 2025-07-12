@@ -1,4 +1,4 @@
-const isProduction = true;
+const isProduction = false;
 export const BASE_URL = isProduction
   ? "https://codewithsachin.in/"
   : "http://localhost:8000";

@@ -100,6 +100,22 @@ type PageData = {
   createdAt: string;
   updatedAt: string;
   __v: number;
+  latestBlogs: {
+    _id: string;
+    title: string;
+    content: string;
+    coverImage: string;
+    status: string;
+    meta?: {
+      title?: string;
+      description?: string;
+      keywords?: string[];
+    };
+    createdAt: string;
+    updatedAt: string;
+    slug: string;
+    __v: number;
+  }[];
 };
 
 export type HomeProps = {

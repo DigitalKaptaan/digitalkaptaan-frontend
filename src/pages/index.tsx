@@ -8,7 +8,7 @@ import {
   ServiceSection,
   TrustedCompanies,
   FaqSection,
-  MarketingSection
+  BlogSection,
 } from "@/components";
 import { withMenuAndPageData } from "@/lib/server";
 import { HomeProps } from "@/types";
@@ -67,8 +67,8 @@ export default function Home({ metaData, pageData, pageHasError }: HomeProps) {
               return null;
           }
         })}
-<FaqSection />
-      <MarketingSection />
+      <FaqSection />
+      <BlogSection blogList={pageData?.latestBlogs} />
       <HomeSign />
     </main>
   );
