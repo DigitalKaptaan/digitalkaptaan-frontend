@@ -1,5 +1,5 @@
 .hero_banner {
-  background-color: #AA9DFC;
+  background-color: #aa9dfc;
   padding: 8rem 2rem;
   text-align: center;
   color: #111;
@@ -19,10 +19,6 @@
   gap: 1.5rem;
   flex-wrap: wrap;
 }
-
-
-
-
 
 .content_section {
   padding: 2rem;
@@ -56,7 +52,6 @@
   line-height: 1.8;
   color: #444;
 }
-
 
 /* quote box */
 
@@ -148,7 +143,7 @@
 
 .form_input:focus,
 .form_textarea:focus {
-  border-color: #ff8855;
+  border-color: var(--primary-color);
   outline: none;
 }
 
@@ -158,7 +153,7 @@
 
 .form_button {
   align-self: flex-start;
-  background-color: #ff8855;
+  background-color: var(--primary-color);
   color: #fff;
   font-weight: 600;
   padding: 0.75rem 2rem;
@@ -170,10 +165,8 @@
 }
 
 .form_button:hover {
-  background-color: #ff8855;
+  background-color: var(--primary-color);
 }
-
-
 
 /* Responsive Breakpoints */
 @media (min-width: 576px) {
@@ -185,10 +178,9 @@
     font-size: 1.1rem;
   }
 
-   .text_box p {
+  .text_box p {
     font-size: 1rem;
   }
-
 
   .quote_content {
     font-size: 1.1rem;
@@ -212,7 +204,7 @@
     font-size: 1rem;
   }
 
-    .quote_content {
+  .quote_content {
     font-size: 1.2rem;
   }
 }
@@ -222,7 +214,7 @@
     font-size: 3.5rem;
   }
 
-   .text_box p {
+  .text_box p {
     font-size: 1rem;
   }
 }
@@ -232,11 +224,11 @@
     font-size: 3rem;
   }
 
-   .text_box p {
+  .text_box p {
     font-size: 1rem;
   }
 
-   .quote_content {
+  .quote_content {
     font-size: 1.25rem;
   }
 }

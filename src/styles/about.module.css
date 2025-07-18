@@ -39,7 +39,7 @@
 }
 
 .highlighted_text {
-  color: #ff8855;
+  color: var(--primary-color);
 }
 
 .about_us_images {
@@ -301,7 +301,7 @@
 
 .newsletter_form button {
   padding: 15px 25px;
-  background: #ff8855;
+  background: var(--primary-color);
   color: #fff;
   border: none;
   border-radius: 8px;

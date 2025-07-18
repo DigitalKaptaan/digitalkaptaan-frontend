@@ -1,8 +1,8 @@
 .trusted_section {
   text-align: center;
   padding: 20px 20px;
-  background:  url('/assets/svg_home.svg') bottom center no-repeat;
-  background-size:contain;
+  background: url("/assets/svg_home.svg") bottom center no-repeat;
+  background-size: contain;
   margin-top: 30px;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .highlight {
-  color: #f97316;
+  color: var(--primary-color);
 }
 
 /* Wrapper with horizontal scroll */
@@ -29,8 +29,8 @@
   overflow-y: hidden;
   white-space: nowrap;
   padding-bottom: 10px;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* ✅ Hide scrollbar in global scope via nesting inside the local class */
@@ -52,7 +52,7 @@
   background: white;
   border-radius: 16px;
   padding: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   width: 150px;
   height: 150px;
@@ -122,9 +122,9 @@
 }
 
 @media only screen and (min-width: 1200px) {
-   .trusted_heading {
+  .trusted_heading {
     font-size: 2.5rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
   .logo_item {
     width: 150px;
