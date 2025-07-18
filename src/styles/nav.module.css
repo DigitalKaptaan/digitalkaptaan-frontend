@@ -283,22 +283,9 @@
     display: flex;
   }
 
-  .nav_links li {
+  /* .nav_links li {
     width: 100%;
-  }
-  .mobile_nav_links li {
-    width: 100%;
-  }
-
-  .nav_links li a {
-    width: 100%;
-    padding-left: 1rem;
-  }
-  .mobile_nav_links li a {
-    width: 100%;
-    padding-left: 1rem;
-  }
-
+  } */
   .actions {
     order: 3;
   }
@@ -369,16 +356,6 @@
     z-index: 9999;
   }
 
-  /* Close Button */
-  .closeBtn {
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
 
   /* Mobile Nav Links */
   .mobile_nav_links {
