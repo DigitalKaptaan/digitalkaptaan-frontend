@@ -39,15 +39,17 @@ const Footer = ({ footer, contact }: FooterNavigation) => {
           <div className={styles.footer_container}>
             <div className={styles.left_column}>
               <div className={styles.logo}>
-                <Image
-                  width={100}
-                  height={100}
-                  src="/white-logo.svg"
-                  alt="Terra Logo"
-                  className={styles.logo_icon}
-                  priority
-                />
+                <div style={{ position: "relative", width: 40, height: 40 }}>
+                  <Image
+                    src="/digitalkaptaan_white_logo.svg"
+                    alt="digitalkaptaan_logo"
+                    fill
+                    priority
+                  />
+                </div>
+                <h4 className={styles.logoname}>Digital Kaptaan</h4>
               </div>
+
               <div className={styles.contact}>
                 <h3>Call us</h3>
                 <Link

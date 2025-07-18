@@ -33,7 +33,7 @@
 }
 
 .highlight {
-  color: #ff8855;
+  color: var(--primary-color);
 }
 
 .blog_cards {
@@ -91,7 +91,7 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background-color: #ff8855;
+  background-color: var(--primary-color);
   color: white;
   padding: 5px 12px;
   font-size: 12px;

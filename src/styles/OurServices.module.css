@@ -33,7 +33,7 @@
 }
 
 .highlight {
-  color: #ff8855;
+  color: var(--primary-color);
 }
 
 .video_box {
@@ -82,7 +82,7 @@
 }
 
 .video_icon:hover {
-  background: #ff8855;
+  background: var(--primary-color);
 }
 
 .play_icon {
@@ -172,7 +172,7 @@
 }
 
 .feature_card:hover {
-  background-color: #ff8855;
+  background-color: var(--primary-color);
   color: #fff;
 }
 
@@ -182,7 +182,7 @@
   height: 48px;
   border-radius: 50%;
   background-color: #f5f5ff;
-  color: #ff8855;
+  color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -200,7 +200,7 @@
 
 .feature_card:hover .feature_icon {
   background-color: #fff;
-  color: #ff8855;
+  color: var(--primary-color);
 }
 
 .feature_title {

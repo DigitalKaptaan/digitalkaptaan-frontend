@@ -19,7 +19,7 @@
 } */
 
 :root {
-  --primary-color: #ff8855;
+  --primary-color: #274d8f;
   --text-color: #111;
   --bg-white: #fff;
   --font: "Segoe UI", sans-serif;
@@ -32,6 +32,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {

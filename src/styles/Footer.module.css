@@ -98,3 +98,11 @@
 .contact a:hover {
   color: #fff;
 }
+
+.logoname {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+}
