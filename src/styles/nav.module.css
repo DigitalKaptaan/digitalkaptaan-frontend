@@ -248,9 +248,9 @@
   .nav_container {
     flex-wrap: wrap;
   }
-  .hamburger {
+  /* .hamburger {
     display: block;
-  }
+  } */
 
   .nav_container {
     flex-direction: row;
@@ -320,6 +320,109 @@
   .dropdown_arrow {
     display: none;
   }
+
+  /* Hide desktop links */
+  .nav_links,
+  .actions {
+    display: none;
+  }
+  
+/* ---------------- MOBILE NAVIGATION ONLY ---------------- */
+  /* Hamburger button */
+  .hamburger {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 10001;
+  }
+
+  /* Sidebar container */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 260px;
+    height: 100vh;
+    background: #FFFFFF;
+    z-index: 10000;
+    padding: 2rem 1.5rem;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .sidebarOpen {
+    left: 0;
+  }
+
+  /* Overlay when sidebar is open */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+
+  /* Close Button */
+  .closeBtn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Mobile Nav Links */
+  .mobile_nav_links {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .mobile_nav_links li {
+    width: 100%;
+  }
+
+  .mobile_nav_links li a {
+    display: block;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  .mobile_nav_links li a:hover,
+  .mobile_nav_links li a.active {
+    color: var(--primary-color);
+  }
+
+  /* Dropdown Menu (for sub-links) */
+  .dropdown_menu {
+    display: none;
+    flex-direction: column;
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .dropdown:hover .dropdown_menu {
+    display: flex;
+  }
+
+  .dropdown_arrow {
+    display: none;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -327,3 +430,6 @@
     justify-content: space-between;
   }
 }
+
+
+
