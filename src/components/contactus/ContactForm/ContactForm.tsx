@@ -11,6 +11,7 @@ const FormField = ({
   value,
   name,
   onChange,
+  autoComplete,
 }: {
   label: string;
   id: string;
@@ -19,6 +20,7 @@ const FormField = ({
   half?: boolean;
   value: string;
   name: string;
+  autoComplete?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => (
   <div className={half ? contact.form_group_half : contact.form_group}>
@@ -30,6 +32,7 @@ const FormField = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      autoComplete={autoComplete}
     />
   </div>
 );
@@ -57,6 +60,7 @@ const ContactForm = () => {
             value={values.firstName}
             onChange={handleChange}
             half
+            autoComplete="none"
           />
           <FormField
             label="Last Name"
@@ -66,6 +70,7 @@ const ContactForm = () => {
             value={values.lastName}
             onChange={handleChange}
             half
+            autoComplete="none"
           />
           <FormField
             label="Mail"
@@ -76,6 +81,7 @@ const ContactForm = () => {
             value={values.email}
             onChange={handleChange}
             half
+            autoComplete="none"
           />
           <FormField
             label="Phone"
@@ -86,6 +92,7 @@ const ContactForm = () => {
             value={values.phone || ""}
             onChange={handleChange}
             half
+            autoComplete="none"
           />
           <FormField
             label="Subject"
@@ -94,6 +101,7 @@ const ContactForm = () => {
             placeholder="What are you looking for"
             value={values.subject}
             onChange={handleChange}
+            autoComplete="none"
           />
 
           <div className={contact.form_group}>
@@ -104,6 +112,7 @@ const ContactForm = () => {
               placeholder="Tell us about your project"
               value={values.message}
               onChange={handleChange}
+              autoComplete="none"
             />
           </div>
 
