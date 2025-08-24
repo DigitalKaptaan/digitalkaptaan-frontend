@@ -24,7 +24,10 @@ const ContactApi = {
     try {
       const response = await ApiClient.post(
         URLS.CONTACT.POSTCUSTOMERREQUEST,
-        body
+        body,
+        {
+          withCredentials: true,
+        }
       );
       return responseHandler(response);
     } catch (error) {
