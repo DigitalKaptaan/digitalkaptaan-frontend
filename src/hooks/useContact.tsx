@@ -1,5 +1,7 @@
 import { postContactForm } from "@/lib/server";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export type ContactFormValues = {
   firstName: string;
@@ -21,8 +23,6 @@ const useContact = () => {
   });
 
   const [formLoading, setFormLoading] = useState(false);
-  const [formError, setFormError] = useState<string | null>(null);
-  const [formSuccess, setFormSuccess] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -35,15 +35,45 @@ const useContact = () => {
     }));
   };
 
+  // Validation function
+  const validate = (values: ContactFormValues) => {
+    const errors: Record<string, string> = {};
+
+    if (!values.firstName.trim()) errors.firstName = "First name is required";
+    if (!values.lastName.trim()) errors.lastName = "Last name is required";
+
+    if (!values.email.trim()) {
+      errors.email = "Email is required";
+    } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)) {
+      errors.email = "Invalid email address";
+    }
+
+    if (!values.phone.trim()) {
+      errors.phone = "Phone number is required";
+    } else if (!/^\+?\d{7,15}$/.test(values.phone)) {
+      errors.phone = "Invalid phone number";
+    }
+
+    if (!values.subject.trim()) errors.subject = "Subject is required";
+    if (!values.message.trim()) errors.message = "Message is required";
+
+    return errors;
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormError(null);
-    setFormSuccess(false);
+
+    const errors = validate(values);
+    if (Object.keys(errors).length > 0) {
+      toast.error(Object.values(errors)[0]); // show first validation error
+      return;
+    }
+
     setFormLoading(true);
 
     try {
       await postContactForm(values);
-      setFormSuccess(true);
+      toast.success("Message sent successfully!");
       setValues({
         firstName: "",
         lastName: "",
@@ -53,11 +83,9 @@ const useContact = () => {
         message: "",
       });
     } catch (err: unknown) {
-      if (err instanceof Error) {
-        setFormError(err.message || "Failed to submit form");
-      } else {
-        setFormError("Failed to submit form");
-      }
+      const errorMessage =
+        err instanceof Error ? err.message : "Failed to submit form";
+      toast.error(errorMessage);
     } finally {
       setFormLoading(false);
     }
@@ -66,8 +94,6 @@ const useContact = () => {
   return {
     values,
     formLoading,
-    formError,
-    formSuccess,
     handleChange,
     handleSubmit,
   };

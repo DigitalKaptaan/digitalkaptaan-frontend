@@ -38,14 +38,7 @@ const FormField = ({
 );
 
 const ContactForm = () => {
-  const {
-    formError,
-    formLoading,
-    formSuccess,
-    handleChange,
-    handleSubmit,
-    values,
-  } = useContact();
+  const { formLoading, handleChange, handleSubmit, values } = useContact();
   return (
     <section className={contact.form_wrapper}>
       <div className={contact.form_section}>
@@ -120,14 +113,14 @@ const ContactForm = () => {
             *We won’t spam or publish your email
           </div>
 
-          {formError && (
+          {/* {formError && (
             <div className={contact.error_message}>{formError}</div>
           )}
           {formSuccess && (
             <div className={contact.success_message}>
               Thank you! We received your message.
             </div>
-          )}
+          )} */}
 
           <div className={contact.form_button}>
             <button

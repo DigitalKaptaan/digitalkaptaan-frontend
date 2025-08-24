@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import { Footer, NavBar } from "@/layout";
 import Router from "next/router";
 import NProgress from "nprogress";
+import { ToastContainer } from "react-toastify";
 
 export default function App({ Component, pageProps }: AppProps) {
   const {
@@ -30,6 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
       {footerHasError && contactHasError ? null : (
         <Footer footer={footerData.items} contact={contactData} />
       )}
+      <ToastContainer />
     </div>
   );
 }
