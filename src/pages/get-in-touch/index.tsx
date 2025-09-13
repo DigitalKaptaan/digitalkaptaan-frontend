@@ -54,4 +54,4 @@ const Index = ({ metaData, contactData }: Props) => {
 };
 
 export default Index;
-export const getServerSideProps = withMenuAndContactData();
+export const getServerSideProps = withMenuAndContactData("get-in-touch");
