@@ -10,3 +10,5 @@ export {
   withMenuAndBlogDetailData,
 } from "./withMenuAndBlogsData";
 export { fetchContactData } from "./fetchContactData";
+export { withMenuAndFAQData } from "./withMenuAndFAQData";
+export { withMenuAndSupportData } from "./withMenuAndSupportData";

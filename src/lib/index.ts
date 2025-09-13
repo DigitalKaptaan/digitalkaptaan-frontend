@@ -8,4 +8,11 @@ export {
   withMenuAndBlogsData,
   withMenuAndPageData,
   withMenuAndBlogDetailData,
+  fetchContactData,
+  fetchFooterMenuData,
+  fetchMetaData,
+  postContactForm,
+  withMenuAndContactData,
+  withMenuAndFAQData,
+  withMenuAndSupportData,
 } from "./server";
