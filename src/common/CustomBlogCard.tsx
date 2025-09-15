@@ -23,7 +23,7 @@ type Props = {
   }[];
 };
 
-const CustomBlogCard = ({ blogList }: Props) => {
+const CustomBlogCard = ({ blogList = [] }: Props) => {
   return (
     <div className={Blog.blog_cards}>
       {blogList.map((blog) => (
